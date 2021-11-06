@@ -14,6 +14,9 @@ public class Main {
         String mensajes = "EJEMPLO 1";
         
         System.out.println(mensajes);
+        
+        Usuario n = new Usuario("rocaenca","12345");
+        n.iniciarSesion();
                 
     }
 }
