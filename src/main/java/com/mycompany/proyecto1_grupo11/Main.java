@@ -11,7 +11,7 @@ package com.mycompany.proyecto1_grupo11;
 public class Main {
    
     public static void main(String[] args){
-        String mensajes = "EJEMPLO 1";
+        String mensajes = "kevin vargas";
         
         System.out.println(mensajes);
                 
