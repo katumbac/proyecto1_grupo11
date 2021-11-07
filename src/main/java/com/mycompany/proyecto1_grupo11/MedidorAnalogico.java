@@ -8,7 +8,7 @@ package com.mycompany.proyecto1_grupo11;
  *
  * @author Kevin Vargas
  */
-public class MedidorAnalogico {
+public class MedidorAnalogico extends Medidor {
     private double CargoBasePlan;
     private double PrecioKwPlan;
     private double KilovatiosConsumidos;
