@@ -14,6 +14,12 @@ public class MedidorInteligente extends Medidor {
     public int horaspico;
     public String provincia;
     public double telemetría;
+    public double totalpagar;
+    private String codigo;
+    private double PrecioKwPlan;
+    private double KilovatiosConsumidosNoPico;
+    private double KilovatiosConsumidosPico;
+    private Plan planContratado;
     
     
     public MedidorInteligente(double telemetría, String horaspico){
@@ -22,9 +28,15 @@ public class MedidorInteligente extends Medidor {
     /**
     public void setMedidorInteligente(){
       
+      * 
     }
 
     public int getsetMedidorInteligente(){
       
     }*/
+    
+    public double total_pagar(double CargoBasePlan, double PrecioKwPlan, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico ){
+        this.totalpagar = CargoBasePlan + (PrecioKwPlan*KilovatiosConsumidosNoPico) +  2*PrecioKwPlan*KilovatiosConsumidosPico;
+        return totalpagar;
+    }
 }
