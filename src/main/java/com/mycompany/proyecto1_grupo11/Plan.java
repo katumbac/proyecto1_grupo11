@@ -28,5 +28,4 @@ public class Plan {
         this.cargoBase = cargoBase;
         this.horaPico = horaPico;
     }
-    
 }
