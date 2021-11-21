@@ -28,4 +28,45 @@ public class Plan {
         this.cargoBase = cargoBase;
         this.horaPico = horaPico;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getCostoKwh() {
+        return costoKwh;
+    }
+
+    public void setCostoKwh(double costoKwh) {
+        this.costoKwh = costoKwh;
+    }
+
+    public ArrayList getProvincias() {
+        return provincias;
+    }
+
+    public void setProvincias(ArrayList provincias) {
+        this.provincias = provincias;
+    }
+
+    public double getCargoBase() {
+        return cargoBase;
+    }
+
+    public void setCargoBase(double cargoBase) {
+        this.cargoBase = cargoBase;
+    }
+
+    public String getHoraPico() {
+        return horaPico;
+    }
+
+    public void setHoraPico(String horaPico) {
+        this.horaPico = horaPico;
+    }
+    
 }
