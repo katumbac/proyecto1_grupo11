@@ -9,6 +9,7 @@ package com.mycompany.proyecto1_grupo11;
  * @author Luis Burgos
  */
 public class usuarioAdministrador extends Usuario {
+    
     public usuarioAdministrador(String nombre, String contrasenia) {
     super(nombre, contrasenia);}
     
