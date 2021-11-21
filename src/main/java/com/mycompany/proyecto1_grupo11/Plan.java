@@ -28,6 +28,7 @@ public class Plan {
         this.cargoBase = cargoBase;
         this.horaPico = horaPico;
     }
+<<<<<<< HEAD
 
     public String getNombre() {
         return nombre;
@@ -69,4 +70,10 @@ public class Plan {
         this.horaPico = horaPico;
     }
     
+=======
+    
+    public String getNombre() {
+      return nombre;
+    }
+>>>>>>> 6a76c179f38c928edd59f552a44abfe328e32037
 }
