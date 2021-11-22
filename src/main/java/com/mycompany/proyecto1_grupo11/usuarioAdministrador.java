@@ -11,9 +11,16 @@ import java.util.Scanner;
  * @author Luis Burgos
  */
 public class usuarioAdministrador extends Usuario {
+<<<<<<< HEAD
+    
+=======
     public ArrayList<Plan> planes=new ArrayList<>();
+<<<<<<< HEAD
     public ArrayList<Usuario> usuarios=new ArrayList<>();
     
+=======
+>>>>>>> 6a76c179f38c928edd59f552a44abfe328e32037
+>>>>>>> 868896194818f810e22b94534865dadb9cc3d742
     public usuarioAdministrador(String nombre, String contrasenia) {
     super(nombre, contrasenia);}
     /**
