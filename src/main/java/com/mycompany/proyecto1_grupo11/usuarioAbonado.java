@@ -10,12 +10,15 @@ import java.util.ArrayList;
  * @author Luis Burgos
  */
 public class usuarioAbonado extends Usuario {
-    private String Cedula;
+    private String cedula;
     private String correoElectronico;
     ArrayList<Medidor> Medidores= new ArrayList<Medidor>();
     
-    public usuarioAbonado(String nombre, String contrasenia) {
-    super(nombre, contrasenia);}
+    public usuarioAbonado(String nombre, String contrasenia,String cedula, String correoElectronico) {
+      super(nombre,contrasenia);
+      this.cedula=cedula;
+      this.correoElectronico=correoElectronico;
+    }
  
     public void consultarFactura(String Codigo) {
     }
@@ -25,4 +28,8 @@ public class usuarioAbonado extends Usuario {
     
     public void consultarConsumoHora(String Codigo) {
     }
+    
+    public String getCedula() {
+      return cedula;
+      }
 }
