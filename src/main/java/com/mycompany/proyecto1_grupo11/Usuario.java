@@ -12,21 +12,20 @@ import javax.swing.JOptionPane;
 public class Usuario {
     private String nombre;
     private String contrasenia;
-    private String opciones;
+    private int opciones;
 
-    public Usuario(String nombre, String contrasenia, int menuOpciones) {
+    public Usuario(String nombre, String contrasenia, int opciones) {
         this.nombre = nombre;
         this.contrasenia = contrasenia;
         this.opciones = opciones;
     }
     
     public int menu(){
-        int opciones;
         opciones = Integer.parseInt(JOptionPane.showInputDialog("1.- iniciar Sesion, 2.-salir"));
         return opciones;
     }
     
-    public void iniciarSesion(int opciones){
+    public void iniciarSesion(){
         if(opciones == 1){
             System.out.print("Ingrese nombre de usuario:");
             Scanner nUsuario = new Scanner(System.in);
@@ -35,7 +34,7 @@ public class Usuario {
         }
         
     }
-    public void cerrarSesion(int opciones){
+    public void cerrarSesion(){
         if(opciones == 2){
             System.out.println("Sesion cerrada exisotasmente");
         }
@@ -57,11 +56,11 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public String getOpciones() {
+    public int getOpciones() {
         return opciones;
     }
 
-    public void setOpciones(String opciones) {
+    public void setOpciones(int opciones) {
         this.opciones = opciones;
     }
     
