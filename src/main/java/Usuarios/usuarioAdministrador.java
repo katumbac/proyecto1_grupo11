@@ -93,5 +93,30 @@ public class usuarioAdministrador extends Usuario {
     }
     
     public void realizarFacturacion() {
+     /**   
+        Código del Medidor
+Nombre del Plan
+Fecha lectura anterior: el valor en el campo fecha de lectura actual de la última factura.
+Fecha lectura actual: la fecha de la última lectura encontrada para este medidor
+Número de días Facturados
+Lectura Anterior: el total en kilovatios en el medidor en la última factura
+Lectura Actual: el total en kilovatios que marca el medidor según la última lectura registrada.
+Consumo en kilovatios
+Cargo Fijo del Plan
+Total a Pagar (según la formula de arriba)*/
+
+        System.out.print("******FACTURA*****");
+        System.out.print("Fecha de emision: ");
+        System.out.print("Codigo del medidor: ");
+        System.out.print("Nombre del Plan: ");
+        System.out.print("Fecha lectura anterior: ");
+        System.out.print("Fecha lectura actual: ");
+        System.out.print("Números de días: ");
+        System.out.print("Lectura Anterior: ");
+        System.out.print("Lectura Actual: ");
+        System.out.print("Consumo en Kilovatios: ");
+        System.out.print("Cargi Fijo del Plan: ");
+        //System.out.print("Total a pagar: "+ calcularValorPagar());
+        
     } 
 }

@@ -60,7 +60,7 @@ public class MedidorInteligente extends Medidor {
     }
     
     public double calcularValorPagar(LocalDateTime fechaAccion){
-        double total =  getPrecioKwPlan()* getKilovatiosConsumidosNoPico();
-        return 0;
+        double total =  getPrecioKwPlan()* getKilovatiosConsumidosNoPico() + 2*getPrecioKwPlan()*getKilovatiosConsumidosPico();
+        return total;
     }
 }

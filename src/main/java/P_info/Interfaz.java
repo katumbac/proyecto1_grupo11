@@ -15,22 +15,19 @@ public class Interfaz {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         
-        System.out.print("Ingrese su nombre:");
-        String nombre = sc.nextLine(); // ingreso de string
+        System.out.print("Ingrese su Usuario:");
+        String usuario = sc.nextLine();
         
-        System.out.print("Ingrese su edad:");
-        int edad = sc.nextInt(); // ingreso de numero entero
+        System.out.print("Ingrese su contraseñña:");
+        int contra = sc.nextInt(); 
+
         
-        System.out.print("Ingrese su salario:");
-        double salario = sc.nextDouble(); // ingreso de double
-        
-        sc.close();//como ya no vamos a leer mas datos de consola
-                   //cerramos la conexion
+        sc.close();
         
         //mostsrar datos ingresados por el usuario
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Edad: " + edad);
-        System.out.println("Salario: " + salario);
+        System.out.println("Usuario: " + usuario);
+        System.out.println("Contraseña: " + contra);
+
         
     }
 

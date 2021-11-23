@@ -27,6 +27,13 @@ public class usuarioOperario extends Usuario {
     
     public void registrarMedicion(String codigo){
         
+        /**if(codigo instanceof medidores){
+         System.out.print("Medidor analogico a nombre de ");
+         System.out.print("Última lectura realizada ");
+         System.out.print("Lectura Anterior");
+         System.out.print("Lectura Actual");
+         System.out.print("Kilovatios consumidos");
+        }*/
         
         
     }
