@@ -10,13 +10,71 @@ import java.util.ArrayList;
  * @author Luis Burgos
  */
 public class usuarioAbonado extends Usuario {
-    private String Cedula;
+<<<<<<< HEAD
+=======
+    private String nombre;
+>>>>>>> 868896194818f810e22b94534865dadb9cc3d742
+    private String cedula;
     private String correoElectronico;
-    ArrayList<Medidor> Medidores= new ArrayList<Medidor>();
+    private ArrayList<Medidor> medidores;
+    private ArrayList<Factura> facturas;
     
-    public usuarioAbonado(String nombre, String contrasenia) {
-    super(nombre, contrasenia);}
+<<<<<<< HEAD
+    public usuarioAbonado(String nombre, String contrasenia,String cedula, String correoElectronico) {
+      super(nombre,contrasenia);
+      this.cedula=cedula;
+      this.correoElectronico=correoElectronico;
+=======
+    public usuarioAbonado(String nombreUsuario, String contrasenia, String nombre, String cedula, String Correo, ArrayList<Medidor> medidores,        ArrayList<Factura> facturas) {
+    super(nombreUsuario, contrasenia);
+    this.cedula = cedula;
+    this.correoElectronico = Correo;
+    this.medidores = medidores;
+    this.facturas = facturas;
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public ArrayList<Medidor> getMedidores() {
+        return medidores;
+    }
+
+    public void setMedidores(ArrayList<Medidor> medidores) {
+        this.medidores = medidores;
+    }
+
+    public ArrayList<Factura> getFacturas() {
+        return facturas;
+    }
+
+    public void setFacturas(ArrayList<Factura> facturas) {
+        this.facturas = facturas;
+>>>>>>> 868896194818f810e22b94534865dadb9cc3d742
+    }
  
+    
+    
     public void consultarFactura(String Codigo) {
     }
     
@@ -25,4 +83,8 @@ public class usuarioAbonado extends Usuario {
     
     public void consultarConsumoHora(String Codigo) {
     }
+    
+    public String getCedula() {
+      return cedula;
+      }
 }
