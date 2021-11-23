@@ -4,7 +4,7 @@
  */
 package Usuarios;
 
-import Pmedidor.Medidor;
+import Medidores.Medidor;
 import Usuarios.Usuario;
 import java.util.ArrayList;
 import java.util.Scanner;

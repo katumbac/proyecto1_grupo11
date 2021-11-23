@@ -5,7 +5,7 @@
 package Usuarios;
 import Usuarios.Usuario;
 import P_info.Factura;
-import Pmedidor.Medidor;
+import Medidores.Medidor;
 import P_info.Plan;
 import java.util.ArrayList;
 

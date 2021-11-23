@@ -4,7 +4,7 @@
  */
 package P_info;
 
-import Pmedidor.Medidor;
+import Medidores.Medidor;
 import Usuarios.usuarioAbonado;
 import java.time.LocalDateTime;
 
