@@ -14,10 +14,7 @@ import java.util.Scanner;
  * @author Kevin Vargas
  */
 public class usuarioOperario extends Usuario {
-    private String codigoMedidor;
-    private double lecturaAnterior;
-    private double lecturaActual;
-    private double kilovatiosConsumidos;
+    
     private ArrayList<Medidor> medidores;
 
     public usuarioOperario(String nombre, String contrasenia) {
@@ -27,6 +24,11 @@ public class usuarioOperario extends Usuario {
     
     public void registrarMedicion(String codigo){
         
+        for (Medidor m: medidores){
+            if(m.getCodigo().equals(codigo)){
+                System.out.println(m);
+            }
+        }
         /**if(codigo instanceof medidores){
          System.out.print("Medidor analogico a nombre de ");
          System.out.print("Última lectura realizada ");

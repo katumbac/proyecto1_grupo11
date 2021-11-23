@@ -37,7 +37,7 @@ public abstract class Medidor {
 
     
 
-        public abstract double calcularValorPagar(LocalDateTime FechaAccion);
+    public abstract double calcularValorPagar(LocalDateTime FechaAccion);
 
     public String getCodigo() {
         return codigo;
