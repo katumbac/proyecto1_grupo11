@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.proyecto1_grupo11;
+package Pmedidor;
+
+import Pmedidor.Medidor;
+import P_info.Plan;
 
 /**
  *
@@ -17,17 +20,11 @@ public class MedidorInteligente extends Medidor {
     private double PrecioKwPlan;
     private double KilovatiosConsumidosNoPico;
     private double KilovatiosConsumidosPico;
-    
-    
-    
-        //Costo varia en las horas pico
-<<<<<<< HEAD
-    
-    
+   
     public MedidorInteligente(double CargoBasePlan, double PrecioKwPlan, double KilovatiosConsumidos, double KilovatiosConsumidosPico) {
         this.PrecioKwPlan = CargoBasePlan;
         this.PrecioKwPlan = PrecioKwPlan;
-=======
+
 
     public MedidorInteligente(int horaspico, double telemetría, double totalpagar, double PrecioKwPlan, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String provincia, double costoKwh, Plan planContratado) {
         super(codigo, provincia, costoKwh, planContratado);
@@ -36,7 +33,7 @@ public class MedidorInteligente extends Medidor {
         this.totalpagar = totalpagar;
         this.PrecioKwPlan = PrecioKwPlan;
         this.KilovatiosConsumidosNoPico = KilovatiosConsumidosNoPico;
->>>>>>> 181706459d50788289a8ebee8ec7982dfb97ca77
+
         this.KilovatiosConsumidosPico = KilovatiosConsumidosPico;
     }
     /**
