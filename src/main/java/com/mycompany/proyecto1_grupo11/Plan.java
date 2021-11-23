@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * @author ROBERTO
  */
 public class Plan {
+    
     private String nombre;
     private double costoKwh;
     private ArrayList provincias;
@@ -28,7 +29,6 @@ public class Plan {
         this.cargoBase = cargoBase;
         this.horaPico = horaPico;
     }
-<<<<<<< HEAD
 
     public String getNombre() {
         return nombre;
@@ -69,11 +69,4 @@ public class Plan {
     public void setHoraPico(String horaPico) {
         this.horaPico = horaPico;
     }
-    
-=======
-    
-    public String getNombre() {
-      return nombre;
-    }
->>>>>>> 6a76c179f38c928edd59f552a44abfe328e32037
 }

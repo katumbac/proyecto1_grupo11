@@ -36,7 +36,7 @@ public class Usuario {
     }
     public void cerrarSesion(){
         if(opciones == 2){
-            System.out.println("Sesion cerrada exisotasmente");
+            System.out.println("Sesion cerrada exitosa      mente");
         }
     }
 
