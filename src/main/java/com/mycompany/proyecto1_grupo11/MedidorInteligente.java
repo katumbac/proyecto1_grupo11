@@ -22,10 +22,22 @@ public class MedidorInteligente extends Medidor {
     private Plan planContratado;
     
     
-    public MedidorInteligente(double telemetría, String horaspico){
+    
         //Costo varia en las horas pico
+    
+    
+    public MedidorInteligente(double CargoBasePlan, double PrecioKwPlan, double KilovatiosConsumidos, double KilovatiosConsumidosPico) {
+        this.PrecioKwPlan = CargoBasePlan;
+        this.PrecioKwPlan = PrecioKwPlan;
+        this.KilovatiosConsumidosPico = KilovatiosConsumidosPico;
     }
     /**
+    public MedidorInteligente(double CargoBasePlan, double PrecioKwPlan, double KilovatiosConsumidos, double KilovatiosConsumidosNoPico) {
+        this.PrecioKwPlan = CargoBasePlan;
+        this.PrecioKwPlan = PrecioKwPlan;
+        this.KilovatiosConsumidosNoPico = KilovatiosConsumidosNoPico;
+    }
+    
     public void setMedidorInteligente(){
       
       * 
