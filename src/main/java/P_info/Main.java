@@ -5,6 +5,7 @@
 package P_info;
 
 import Usuarios.Usuario;
+import java.util.Scanner;
 
 /**
  *
@@ -13,12 +14,17 @@ import Usuarios.Usuario;
 public class Main {
    
     public static void main(String[] args){
-        String mensajes = "kevin vargas";
+        Scanner sc = new Scanner(System.in);
         
-        System.out.println(mensajes);
+        System.out.print("Ingrese nombre de usuario: ");
+        String nUsuario = sc.nextLine();
         
-        Usuario n = new Usuario("rocaenca","12345");
-        n.iniciarSesion();
+        System.out.print("Ingrese contraseña: ");
+        String contrasenia = sc.nextLine();
                 
+        
+        
     }
+    
+    
 }

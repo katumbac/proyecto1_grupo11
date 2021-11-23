@@ -4,26 +4,40 @@
  */
 package Pmedidor;
 
+import P_info.Lectura;
 import P_info.Plan;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  *
  * @author ROBERTO
  */
-public class Medidor {
+public abstract class Medidor {
     private String codigo;
     private String provincia;
+    private String direccion;
     private double costoKwh;
     private Plan planContratado;
-    
-    public void calcularConsumo(){}
+    private ArrayList<Lectura> lecturas;
+    private LocalDateTime ultimaFechaCobrada;
+    private LocalDateTime consumoUltimaFactura;
 
-    public Medidor(String codigo, String provincia, double costoKwh, Plan planContratado) {
+    public Medidor(String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura) {
         this.codigo = codigo;
         this.provincia = provincia;
+        this.direccion = direccion;
         this.costoKwh = costoKwh;
         this.planContratado = planContratado;
+        this.lecturas = lecturas;
+        this.ultimaFechaCobrada = ultimaFechaCobrada;
+        this.consumoUltimaFactura = consumoUltimaFactura;
     }
+    
+
+    
+
+        public abstract double calcularValorPagar(LocalDateTime FechaAccion);
 
     public String getCodigo() {
         return codigo;

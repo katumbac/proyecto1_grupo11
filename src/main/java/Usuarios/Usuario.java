@@ -4,7 +4,6 @@
  */
 package Usuarios;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 /**
  *
  * @author ROBERTO
@@ -12,20 +11,12 @@ import javax.swing.JOptionPane;
 public class Usuario {
     private String nombre;
     private String contrasenia;
-    private int opciones;
 
     public Usuario(String nombre, String contrasenia) {
         this.nombre = nombre;
         this.contrasenia = contrasenia;
     }
     
-    
-    public void iniciarSesion(){
-            System.out.print("Ingrese nombre de usuario:");
-            Scanner nUsuario = new Scanner(System.in);
-            System.out.print("Ingrese contraseña:");
-            Scanner contrasenia = new Scanner(System.in);
-    }
    
 
     public String getNombre() {
@@ -44,12 +35,9 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public int getOpciones() {
-        return opciones;
+    @Override
+    public String toString() {
+        return "Usuario:\n" + "nombre:" + nombre + "\n" +  "contrasenia:" + contrasenia;
     }
 
-    public void setOpciones(int opciones) {
-        this.opciones = opciones;
-    }
-    
 }

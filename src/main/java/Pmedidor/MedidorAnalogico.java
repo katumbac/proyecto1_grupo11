@@ -4,8 +4,11 @@
  */
 package Pmedidor;
 
+import P_info.Lectura;
 import Pmedidor.Medidor;
 import P_info.Plan;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,16 +19,17 @@ public class MedidorAnalogico extends Medidor {
     private double PrecioKwPlan;
     private double KilovatiosConsumidos;
 
-    public MedidorAnalogico(String codigo, String provincia, double costoKwh, Plan planContratado,double CargoBasePlan, double PrecioKwPlan, double KilovatiosConsumidos) {
-        super(codigo,provincia,costoKwh,planContratado);
+    public MedidorAnalogico(double CargoBasePlan, double PrecioKwPlan, double KilovatiosConsumidos, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura) {
+        super(codigo, provincia, direccion, costoKwh, planContratado, lecturas, ultimaFechaCobrada, consumoUltimaFactura);
         this.CargoBasePlan = CargoBasePlan;
         this.PrecioKwPlan = PrecioKwPlan;
         this.KilovatiosConsumidos = KilovatiosConsumidos;
     }
+
     
-    public double calcularConsumo(double CargoBasePlan, double PrecioKwPlan, double KilovatiosConsumidos){
-        double totalPagar = CargoBasePlan + (PrecioKwPlan*KilovatiosConsumidos);
-        return totalPagar;
+    
+    public double calcularValorPagar(LocalDateTime fechaAccion){
+        return 0;
     }
 
     public double getCargoBasePlan() {

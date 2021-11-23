@@ -23,13 +23,18 @@ public class usuarioAdministrador extends Usuario {
     
     public void registrarPlan(String nombre, double costoKwh, ArrayList provincias, double cargoBase, ArrayList horasPico) {
         
-        for(Plan p: planes){
-            if (p.getNombre().equals(nombre)){
-               System.out.println("Plan ya existente");
-            }
-            else {
-                Plan p1 = new Plan(nombre,costoKwh,provincias,cargoBase, horasPico);
-                planes.add(p1);
+        if(planes.isEmpty()){
+            planes.add(new Plan(nombre,costoKwh,provincias,cargoBase, horasPico));
+        }
+        else{
+            for(Plan p: planes){
+                if (p.getNombre().equals(nombre)){
+                   System.out.println("Plan ya existente");
+                }
+                else {
+                    Plan p1 = new Plan(nombre,costoKwh,provincias,cargoBase, horasPico);
+                    planes.add(p1);
+                }
             }
         }
     }
@@ -42,48 +47,46 @@ public class usuarioAdministrador extends Usuario {
                 if (Ua.getCedula().equals(cedula)){
                     System.out.print("Ingrese la dirección donde se instalará el medidor: ");
                     String direccion = sc.nextLine();
-                    System.out.print("Tipo de medidor");
-                    String tipo = sc.nextLine();
+                    
+                    System.out.print("Tipo de medidor: ");
+                    String tipoMedidor = sc.nextLine();
+                    
+                    System.out.print("Tipo de plan: ");
+                    int n = 0;
+                    for(Plan p: planes){
+                        n++;
+                        System.out.println(n+".- "+p.getNombre());
+                    }
+                    int tipoPlan = sc.nextInt();
+                    sc.nextLine();
+                    }
+                else{
+                    System.out.print("Ingrese su correo electrónico: ");
+                    String correo = sc.nextLine();
+                    
+                    String alfa="abcdefghijklmnopqrstuvwxyz";
+                    String contrasenia="";
+                    
+                    for(int i=0;i<8;i++){
+                      Double a = Math.random()*8;
+                      int ind=a.intValue();
+                      Double tipo=Math.random()*3;
+                      int t=tipo.intValue();
+                      switch(t) {
+                        case 1: contrasenia+=alfa.charAt(ind);
+                        break;
+                        case 2: contrasenia+=ind;
+                        break;
+                        default: contrasenia+=alfa.toUpperCase().charAt(ind);
+                        break;
+                        }
+                    }
+                    
+                    usuarios.add(new Usuario(cedula,contrasenia));
+                    
                 }
             }
         }
-        
-        /*boolean nuevo=true;
-      String alfa="abcdefghijklmnopqrstuvwxyz";
-      for (Usuario u:usuarios){
-        if (u instanceof usuarioAbonado) {
-          usuarioAbonado ab=(usuarioAbonado)u;
-          String id=ab.getCedula();
-          if (id.equals(cedula)){
-          nuevo=false;
-          }
-        }
-      }
-
-
-      if (nuevo==true){
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Ingrese su nombre: ");
-        String nombre = sc.nextLine();
-        System.out.print("Ingrese su correo eléctronico: ");
-        String correo = sc.nextLine();
-
-        String contrasenia="";
-        for(int i=0;i<8;i++){
-          Double a = Math.random()*8;
-          int ind=a.intValue();
-          Double tipo=Math.random()*3;
-          int t=tipo.intValue();
-          switch(t) {
-            case 1: contrasenia+=alfa.charAt(ind);
-            break;
-            case 2: contrasenia+=ind;
-            break;
-            default: contrasenia+=alfa.toUpperCase().charAt(ind);
-            break;
-      }
-      }
-    }*/
     }
     
     public void simularMediciones () {

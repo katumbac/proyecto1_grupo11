@@ -4,8 +4,11 @@
  */
 package Pmedidor;
 
+import P_info.Lectura;
 import Pmedidor.Medidor;
 import P_info.Plan;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,40 +23,22 @@ public class MedidorInteligente extends Medidor {
     private double PrecioKwPlan;
     private double KilovatiosConsumidosNoPico;
     private double KilovatiosConsumidosPico;
-   
-    public MedidorInteligente(double CargoBasePlan, double PrecioKwPlan, double KilovatiosConsumidos, double KilovatiosConsumidosPico) {
-        this.PrecioKwPlan = CargoBasePlan;
-        this.PrecioKwPlan = PrecioKwPlan;
 
-
-    public MedidorInteligente(int horaspico, double telemetría, double totalpagar, double PrecioKwPlan, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String provincia, double costoKwh, Plan planContratado) {
-        super(codigo, provincia, costoKwh, planContratado);
+    public MedidorInteligente(int horaspico, double telemetría, double totalpagar, double PrecioKwPlan, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura) {
+        super(codigo, provincia, direccion, costoKwh, planContratado, lecturas, ultimaFechaCobrada, consumoUltimaFactura);
         this.horaspico = horaspico;
         this.telemetría = telemetría;
         this.totalpagar = totalpagar;
         this.PrecioKwPlan = PrecioKwPlan;
         this.KilovatiosConsumidosNoPico = KilovatiosConsumidosNoPico;
-
         this.KilovatiosConsumidosPico = KilovatiosConsumidosPico;
     }
-    /**
-    public MedidorInteligente(double CargoBasePlan, double PrecioKwPlan, double KilovatiosConsumidos, double KilovatiosConsumidosNoPico) {
-        this.PrecioKwPlan = CargoBasePlan;
-        this.PrecioKwPlan = PrecioKwPlan;
-        this.KilovatiosConsumidosNoPico = KilovatiosConsumidosNoPico;
-    }
     
-    public void setMedidorInteligente(){
-      
-      * 
-    }
 
-    public int getsetMedidorInteligente(){
-      
-    }*/
     
-    public double total_pagar(double CargoBasePlan, double PrecioKwPlan, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico ){
-        this.totalpagar = CargoBasePlan + (PrecioKwPlan*KilovatiosConsumidosNoPico) +  2*PrecioKwPlan*KilovatiosConsumidosPico;
-        return totalpagar;
+    
+    
+    public double calcularValorPagar(LocalDateTime fechaAccion){
+        return 0;
     }
 }

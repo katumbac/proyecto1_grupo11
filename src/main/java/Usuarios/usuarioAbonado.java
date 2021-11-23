@@ -21,18 +21,16 @@ public class usuarioAbonado extends Usuario {
     private ArrayList<Medidor> medidores;
     private ArrayList<Factura> facturas;
     
-    public usuarioAbonado(String nombre, String contrasenia,String cedula, String correoElectronico) {
-      super(nombre,contrasenia);
-      this.cedula=cedula;
-      this.correoElectronico=correoElectronico;
-      
-    public usuarioAbonado(String nombreUsuario, String contrasenia, String nombre, String cedula, String Correo, ArrayList<Medidor> medidores,        ArrayList<Factura> facturas) {
+    
+    public usuarioAbonado(String nombreUsuario, String cedula, String correoElectronico, ArrayList<Medidor> medidores, ArrayList<Factura> facturas, String nombre, String contrasenia) {
         super(nombreUsuario, contrasenia);
+        this.nombre = nombre;
         this.cedula = cedula;
-        this.correoElectronico = Correo;
+        this.correoElectronico = correoElectronico;
         this.medidores = medidores;
         this.facturas = facturas;
     }
+      
     
     public String getNombre() {
         return nombre;
@@ -71,7 +69,6 @@ public class usuarioAbonado extends Usuario {
 
     public void setFacturas(ArrayList<Factura> facturas) {
         this.facturas = facturas;
->>>>>>> 868896194818f810e22b94534865dadb9cc3d742
     }
  
     
@@ -84,8 +81,5 @@ public class usuarioAbonado extends Usuario {
     
     public void consultarConsumoHora(String Codigo) {
     }
-    
-    public String getCedula() {
-      return cedula;
-      }
+
 }
