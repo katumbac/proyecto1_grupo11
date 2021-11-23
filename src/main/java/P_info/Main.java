@@ -15,14 +15,17 @@ public class Main {
    
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.print("Ingrese nombre de usuario: ");
         String nUsuario = sc.nextLine();
+        sc.nextLine();
         
         System.out.print("Ingrese contraseña: ");
         String contrasenia = sc.nextLine();
+        sc.nextLine();
+
                 
-        
+        sc.close();
         
     }
     

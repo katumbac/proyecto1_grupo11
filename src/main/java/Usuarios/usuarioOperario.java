@@ -27,6 +27,8 @@ public class usuarioOperario extends Usuario {
     
     public void registrarMedicion(String codigo){
         
+        
+        
     }
     
    

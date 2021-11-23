@@ -3,6 +3,7 @@ P_info\HorasPico.class
 Usuarios\usuarioOperario.class
 Usuarios\usuarioAdministrador.class
 Pmedidor\MedidorInteligente.class
+P_info\Interfaz.class
 P_info\Plan.class
 Usuarios\usuarioAbonado.class
 Pmedidor\Medidor.class

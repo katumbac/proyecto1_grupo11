@@ -26,12 +26,6 @@ public class MedidorAnalogico extends Medidor {
         this.KilovatiosConsumidos = KilovatiosConsumidos;
     }
 
-    
-    
-    public double calcularValorPagar(LocalDateTime fechaAccion){
-        return 0;
-    }
-
     public double getCargoBasePlan() {
         return CargoBasePlan;
     }
@@ -56,6 +50,10 @@ public class MedidorAnalogico extends Medidor {
         this.KilovatiosConsumidos = KilovatiosConsumidos;
     }
     
+    public double calcularValorPagar(LocalDateTime fechaAccion){
+        double total=  getCargoBasePlan()+ getPrecioKwPlan()*getKilovatiosConsumidos();
+        return total;
+    }
     
     
     

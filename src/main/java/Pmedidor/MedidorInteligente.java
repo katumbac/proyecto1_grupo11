@@ -6,6 +6,7 @@ package Pmedidor;
 
 import P_info.Lectura;
 import Pmedidor.Medidor;
+import Pmedidor.MedidorInteligente;
 import P_info.Plan;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -33,12 +34,33 @@ public class MedidorInteligente extends Medidor {
         this.KilovatiosConsumidosNoPico = KilovatiosConsumidosNoPico;
         this.KilovatiosConsumidosPico = KilovatiosConsumidosPico;
     }
-    
 
-    
-    
+    public int getHoraspico() {
+        return horaspico;
+    }
+
+    public double getTelemetría() {
+        return telemetría;
+    }
+
+    public double getTotalpagar() {
+        return totalpagar;
+    }
+
+    public double getPrecioKwPlan() {
+        return PrecioKwPlan;
+    }
+
+    public double getKilovatiosConsumidosNoPico() {
+        return KilovatiosConsumidosNoPico;
+    }
+
+    public double getKilovatiosConsumidosPico() {
+        return KilovatiosConsumidosPico;
+    }
     
     public double calcularValorPagar(LocalDateTime fechaAccion){
+        double total =  getPrecioKwPlan()* getKilovatiosConsumidosNoPico();
         return 0;
     }
 }
