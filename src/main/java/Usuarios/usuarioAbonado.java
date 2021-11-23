@@ -2,7 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.proyecto1_grupo11;
+package Usuarios;
+import Usuarios.Usuario;
+import P_info.Factura;
+import Pmedidor.Medidor;
+import P_info.Plan;
 import java.util.ArrayList;
 
 /**
