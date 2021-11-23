@@ -14,15 +14,10 @@ public class Plan {
     private double costoKwh;
     private ArrayList provincias;
     private double cargoBase;
-    private String horaPico;
+    private ArrayList horaPico;
     
-    public Plan(String nombre, double costoKwh, ArrayList provincias){
-        this.nombre = nombre;
-        this.costoKwh = costoKwh;
-        this.provincias = provincias;
-        this.cargoBase = 0;
-    }
-    public Plan(String nombre, double costoKwh, ArrayList provincias, double cargoBase, String horaPico){
+    
+    public Plan(String nombre, double costoKwh, ArrayList provincias, double cargoBase, ArrayList horaPico){
         this.nombre = nombre;
         this.costoKwh = costoKwh;
         this.provincias = provincias;
@@ -62,11 +57,11 @@ public class Plan {
         this.cargoBase = cargoBase;
     }
 
-    public String getHoraPico() {
+    public ArrayList getHoraPico() {
         return horaPico;
     }
 
-    public void setHoraPico(String horaPico) {
+    public void setHoraPico(ArrayList horaPico) {
         this.horaPico = horaPico;
     }
 }

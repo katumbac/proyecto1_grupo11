@@ -19,25 +19,14 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
     
-    public int menu(){
-        opciones = Integer.parseInt(JOptionPane.showInputDialog("1.- iniciar Sesion, 2.-salir"));
-        return opciones;
-    }
     
     public void iniciarSesion(){
-        if(opciones == 1){
             System.out.print("Ingrese nombre de usuario:");
             Scanner nUsuario = new Scanner(System.in);
             System.out.print("Ingrese contraseña:");
             Scanner contrasenia = new Scanner(System.in);
-        }
-        
     }
-    public void cerrarSesion(){
-        if(opciones == 2){
-            System.out.println("Sesion cerrada exitosa      mente");
-        }
-    }
+   
 
     public String getNombre() {
         return nombre;

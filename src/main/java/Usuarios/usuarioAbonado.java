@@ -14,27 +14,24 @@ import java.util.ArrayList;
  * @author Luis Burgos
  */
 public class usuarioAbonado extends Usuario {
-<<<<<<< HEAD
-=======
+
     private String nombre;
->>>>>>> 868896194818f810e22b94534865dadb9cc3d742
     private String cedula;
     private String correoElectronico;
     private ArrayList<Medidor> medidores;
     private ArrayList<Factura> facturas;
     
-<<<<<<< HEAD
     public usuarioAbonado(String nombre, String contrasenia,String cedula, String correoElectronico) {
       super(nombre,contrasenia);
       this.cedula=cedula;
       this.correoElectronico=correoElectronico;
-=======
+      
     public usuarioAbonado(String nombreUsuario, String contrasenia, String nombre, String cedula, String Correo, ArrayList<Medidor> medidores,        ArrayList<Factura> facturas) {
-    super(nombreUsuario, contrasenia);
-    this.cedula = cedula;
-    this.correoElectronico = Correo;
-    this.medidores = medidores;
-    this.facturas = facturas;
+        super(nombreUsuario, contrasenia);
+        this.cedula = cedula;
+        this.correoElectronico = Correo;
+        this.medidores = medidores;
+        this.facturas = facturas;
     }
     
     public String getNombre() {
