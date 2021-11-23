@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Main {
    
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
+        /**Scanner sc = new Scanner(System.in);
 
         System.out.print("Ingrese nombre de usuario: ");
         String nUsuario = sc.nextLine();
@@ -25,7 +25,9 @@ public class Main {
         sc.nextLine();
 
                 
-        sc.close();
+        sc.close();*/
+        Interfaz uit = new Interfaz();
+        uit.menuPrincipal();
         
     }
     
