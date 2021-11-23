@@ -27,6 +27,11 @@ public class MedidorAnalogico extends Medidor {
         double total= p.getCargoBase()+  (p.getCostoKwh()*this.KilovatiosConsumidos);
         return total;
     }
+
+    @Override
+    public String toString() {
+        return "Medidor Analógico\n" + super.toString() + "Kilovatios consumidos: " + KilovatiosConsumidos;
+    }
     
     
 }

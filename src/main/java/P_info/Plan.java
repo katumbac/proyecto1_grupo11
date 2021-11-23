@@ -64,4 +64,11 @@ public class Plan {
     public void setHoraPico(ArrayList horaPico) {
         this.horaPico = horaPico;
     }
+
+    @Override
+    public String toString() {
+        return "Plan\n" + "Nombre: " + nombre + "\n"+ "Costo Kwh:" + costoKwh + "\n"+ "Provincias: " + provincias + "\n"+ "Cargo base:" + cargoBase +"\n"+ "Hora pico:" + horaPico +"\n";
+    }
+    
+    
 }

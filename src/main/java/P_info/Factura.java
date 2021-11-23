@@ -21,12 +21,12 @@ public class Factura {
     private LocalDateTime fechaLecturaAnt;
     private LocalDateTime fechaLecturaAct;
     private int diasFacturados;
-    private double lecturaAnt;
+    private Lectura lecturaAnt;
     private double consumo;
     private double cargoPlan;
     private double totalPagar;
 
-    public Factura(int numeroFactura, usuarioAbonado nombreAbonado, Medidor codigoMedidor, Plan nombrePlan, LocalDateTime fechaEmision, LocalDateTime fechaLecturaAnt, LocalDateTime fechaLecturaAct, int diasFacturados, double lecturaAnt, double consumo, double cargoPlan, double totalPagar) {
+    public Factura(int numeroFactura, usuarioAbonado nombreAbonado, Medidor codigoMedidor, Plan nombrePlan, LocalDateTime fechaEmision, LocalDateTime fechaLecturaAnt, LocalDateTime fechaLecturaAct, int diasFacturados, Lectura lecturaAnt, double consumo, double cargoPlan, double totalPagar) {
         this.numeroFactura = numeroFactura;
         this.nombreAbonado = nombreAbonado.getNombre();
         this.codigoMedidor = codigoMedidor.getCodigo();
@@ -39,6 +39,11 @@ public class Factura {
         this.consumo = consumo;
         this.cargoPlan = cargoPlan;
         this.totalPagar = totalPagar;
+    }
+
+    @Override
+    public String toString() {
+        return "Factura\n" + "\n"+ "Número de factura: " + numeroFactura + "\n"+ "Nombre del Abonado: " + nombreAbonado + "\n"+ "Código del Medidor: " + codigoMedidor + "\n"+ "Nombre del plan: " + nombrePlan + "\n"+ "Fecha de emisión: " + fechaEmision + "\n"+ "Fecha de lectura anterior: " + fechaLecturaAnt + "\n"+ "Fecha de lectura actual: " + fechaLecturaAct + "\n"+ "Días Facturados: " + diasFacturados + "\n"+ "Lectura anterior: " + lecturaAnt + "\n"+ "Consumo: " + consumo + "\n"+ "Cargo del plan: " + cargoPlan + "\n"+ "Total a pagar: " + totalPagar+"\n";
     }
     
     

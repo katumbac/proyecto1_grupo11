@@ -5,6 +5,9 @@
 package P_info;
 
 import Usuarios.Usuario;
+import Usuarios.usuarioAbonado;
+import Usuarios.usuarioAdministrador;
+import Usuarios.usuarioOperario;
 import java.util.Scanner;
 
 /**
@@ -27,10 +30,11 @@ public class Interfaz {
     public void menuPrincipal(){
         String op = "";
         System.out.println("Bienvenido");
-        do{
+        do{            
             System.out.println("1. Iniciar Sesión");
             System.out.println("2. Salir");
-            System.out.println("Ingrese opcion");
+            
+            System.out.println("Opción:");
             op = sc.nextLine();
             
             switch(op){
@@ -49,34 +53,27 @@ public class Interfaz {
     
 
     private void opcion1(){
-        System.out.println("\n Iniciar Sesion");
-        System.out.println("Ingrese Usuario");
+        System.out.println("\nIniciar Sesion");
+        System.out.println("Ingrese Usuario: ");
         String usuario = sc.nextLine();
-        System.out.println("Ingrese Contraseña");
+        System.out.println("Ingrese Contraseña: ");
         String contra = sc.nextLine();
-        sc.nextLine();//limpio el buffer
-
         
-        Usuario usu;
+        Usuario usu = new Usuario(usuario,contra);
         //Vendedor vene;
         //si tipo es empleado cree une instancia de Empleado con los datos 
         //si tipo es vendedor cree una instancia de Vendedor con los datos 
         //agregue al empleado a la nomina
      // Empleado emp =  new TecnoHogar();
-        /**if (usuario instanceof uusuarioAbonado)){
-          
-            
-        } else {
-          System.out.println("No existe usuario");
-        }*/
-        
-        /* si el usuario es Usuario abonado
+        if (usu instanceof usuarioAbonado){
+           //si el usuario es Usuario abonado
+           String op;
         do{
             System.out.println("Usuario Abonado");
             System.out.println("1. Consultar Factura");
             System.out.println("2. Consultar histórico facturado");
             System.out.println("3. Consultar consumos por hora");
-            System.out.println("Ingrese opcion");
+            System.out.println("Ingrese opcion: ");
             op = sc.nextLine();
             
             switch(op){
@@ -94,17 +91,17 @@ public class Interfaz {
                     break;
             }
         }while(!op.equals("3"));
-        
-        */
-        
-        /* si el usuario es Usuario Administrador
+        }
+        // si el usuario es Usuario Administrador
+        else if(usu instanceof usuarioAdministrador){
+            String op;
             do{
             System.out.println("Opciones Administrador");
             System.out.println("1. Registrar Plan");
             System.out.println("2. Registrar Medidor");
             System.out.println("3. Simular Mediciones");
             System.out.println("4. Realizar Facturación");
-            System.out.println("Ingrese opcion");
+            System.out.println("Ingrese opcion: ");
             op = sc.nextLine();
             
             switch(op){
@@ -122,16 +119,16 @@ public class Interfaz {
                     break;
             }
         }while(!op.equals("3"));
-        */
-     
-        /* Si usuario es operario
-            
+        }
+        // Si usuario es operario
+        else if (usu instanceof usuarioOperario){  
+            String op;
         do{
             System.out.println("Usuario Operario");
 
             System.out.println("1. Registrar Medición");
             System.out.println("2. Salir");
-            System.out.println("Ingrese opcion");
+            System.out.println("Ingrese opcion: ");
             op = sc.nextLine();
             
             switch(op){
@@ -146,8 +143,16 @@ public class Interfaz {
                     break;
             }
         }while(!op.equals("2"));
+         
+        } else {
+          System.out.println("No existe usuario");
+        }
         
-        */
+        
+        
+        
+     
+        
        
                 
     }

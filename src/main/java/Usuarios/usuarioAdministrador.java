@@ -3,9 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Usuarios;
+import Medidores.Medidor;
+import Medidores.MedidorInteligente;
 import Usuarios.usuarioAbonado;
 import Usuarios.Usuario;
 import P_info.Plan;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,12 +17,18 @@ import java.util.Scanner;
  * @author Luis Burgos
  */
 public class usuarioAdministrador extends Usuario {
-    public ArrayList<Plan> planes = new ArrayList<>();
-    public ArrayList<Usuario> usuarios = new ArrayList<>();
-    
-    public usuarioAdministrador(String nombre, String contrasenia) {
+    public ArrayList<Plan> planes;
+    public ArrayList<Usuario> usuarios;
+    public ArrayList<Medidor> medidores;
+
+    public usuarioAdministrador(ArrayList<Plan> planes, ArrayList<Usuario> usuarios, ArrayList<Medidor> medidores, String nombre, String contrasenia) {
         super(nombre, contrasenia);
+        this.planes = planes;
+        this.usuarios = usuarios;
+        this.medidores = medidores;
     }
+    
+    
     
     public void registrarPlan(String nombre, double costoKwh, ArrayList provincias, double cargoBase, ArrayList horasPico) {
         
@@ -41,6 +50,8 @@ public class usuarioAdministrador extends Usuario {
     
     public void registrarMedidor(String cedula) {
         Scanner sc = new Scanner(System.in);
+        
+        //Método incompleto, todavía falta.
         for(Usuario Us: usuarios){
             if (Us instanceof usuarioAbonado && Us != null){
                 usuarioAbonado Ua = (usuarioAbonado) Us;
@@ -51,7 +62,7 @@ public class usuarioAdministrador extends Usuario {
                     System.out.print("Tipo de medidor: ");
                     String tipoMedidor = sc.nextLine();
                     
-                    System.out.print("Tipo de plan: ");
+                    System.out.print("Tipo de plan:");
                     int n = 0;
                     for(Plan p: planes){
                         n++;
@@ -89,10 +100,28 @@ public class usuarioAdministrador extends Usuario {
         }
     }
     
-    public void simularMediciones () {
+    public void simularMediciones (LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+        
     }
     
     public void realizarFacturacion() {
+        int total = 0;
+        for(Medidor m: medidores){
+            total += m.calcularValorPagar(LocalDateTime.now());
+        System.out.print("******FACTURA*****");
+        System.out.print("Fecha de emision: ");
+        System.out.print("Codigo del medidor: ");
+        System.out.print("Nombre del Plan: ");
+        System.out.print("Fecha lectura anterior: ");
+        System.out.print("Fecha lectura actual: ");
+        System.out.print("Números de días: ");
+        System.out.print("Lectura Anterior: ");
+        System.out.print("Lectura Actual: ");
+        System.out.print("Consumo en Kilovatios: ");
+        System.out.print("Cargi Fijo del Plan: ");
+        System.out.print("Total a pagar: "+ total);    
+        }
+        
      /**   
         Código del Medidor
 Nombre del Plan
@@ -105,18 +134,7 @@ Consumo en kilovatios
 Cargo Fijo del Plan
 Total a Pagar (según la formula de arriba)*/
 
-        System.out.print("******FACTURA*****");
-        System.out.print("Fecha de emision: ");
-        System.out.print("Codigo del medidor: ");
-        System.out.print("Nombre del Plan: ");
-        System.out.print("Fecha lectura anterior: ");
-        System.out.print("Fecha lectura actual: ");
-        System.out.print("Números de días: ");
-        System.out.print("Lectura Anterior: ");
-        System.out.print("Lectura Actual: ");
-        System.out.print("Consumo en Kilovatios: ");
-        System.out.print("Cargi Fijo del Plan: ");
-        //System.out.print("Total a pagar: "+ calcularValorPagar());
+        
         
     } 
 }
