@@ -1,13 +1,13 @@
+Medidores\Medidor.class
 P_info\Provincias.class
 P_info\HorasPico.class
+Medidores\MedidorAnalogico.class
 Usuarios\usuarioOperario.class
 Usuarios\usuarioAdministrador.class
-Pmedidor\MedidorInteligente.class
 P_info\Interfaz.class
 P_info\Plan.class
 Usuarios\usuarioAbonado.class
-Pmedidor\Medidor.class
-Pmedidor\MedidorAnalogico.class
+Medidores\MedidorInteligente.class
 P_info\Factura.class
 P_info\Lectura.class
 P_info\Main.class

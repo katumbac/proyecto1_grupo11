@@ -22,9 +22,6 @@ public class MedidorAnalogico extends Medidor {
         this.KilovatiosConsumidos = KilovatiosConsumidos;
     }
 
-    
-    
-    
     public double calcularValorPagar(LocalDateTime fechaAccion){
         Plan p = super.getPlanContratado();
         double total= p.getCargoBase()+  (p.getCostoKwh()*this.KilovatiosConsumidos);
