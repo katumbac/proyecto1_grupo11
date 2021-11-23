@@ -18,7 +18,7 @@ public class usuarioOperario extends Usuario {
     private double kilovatiosConsumidos;
 
     public usuarioOperario(String codigoMedidor, double lecturaAnterior, double lecturaActual, double kilovatiosConsumidos, String nombre, String contrasenia, int opciones) {
-        super(nombre, contrasenia, opciones);
+        super(nombre, contrasenia);
         this.codigoMedidor = codigoMedidor;
         this.lecturaAnterior = lecturaAnterior;
         this.lecturaActual = lecturaActual;
