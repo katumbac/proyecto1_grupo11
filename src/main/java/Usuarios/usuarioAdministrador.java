@@ -14,11 +14,21 @@ import java.util.Scanner;
  * @author Luis Burgos
  */
 public class usuarioAdministrador extends Usuario {
+
+
     public ArrayList<Plan> planes = new ArrayList<>();
     public ArrayList<Usuario> usuarios = new ArrayList<>();
     
     public usuarioAdministrador(String nombre, String contrasenia) {
         super(nombre, contrasenia);
+    }
+
+    public ArrayList<Plan> getPlanes() {
+        return planes;
+    }
+
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
     }
     
     public void registrarPlan(String nombre, double costoKwh, ArrayList provincias, double cargoBase, ArrayList horasPico) {
