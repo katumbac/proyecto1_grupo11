@@ -72,7 +72,6 @@ public class usuarioAbonado extends Usuario {
     }
  
     
-    
     public void consultarFactura(String Codigo) {
     }
     

@@ -37,7 +37,7 @@ public abstract class Medidor {
 
     
 
-        public abstract double calcularValorPagar(LocalDateTime FechaAccion);
+    public abstract double calcularValorPagar(LocalDateTime FechaAccion);
 
     public String getCodigo() {
         return codigo;
@@ -70,5 +70,11 @@ public abstract class Medidor {
     public void setPlanContratado(Plan planContratado) {
         this.planContratado = planContratado;
     }
+
+    @Override
+    public String toString() {
+        return "Código: " + codigo + "\n"+ "Provincias: " + provincia + "\n"+ "Direccion: " + direccion + "\n"+ "Costo Kwh: " + costoKwh + "\n"+ "Plan contratado: " + planContratado + "\n"+ "Lecturas:" + lecturas + "\n"+ "Última fecha cobrada: " + ultimaFechaCobrada + "\n"+ "Consumo última factura: " + consumoUltimaFactura+"\n";
+    }
+    
     
 }

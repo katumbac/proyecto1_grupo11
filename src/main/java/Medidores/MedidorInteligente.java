@@ -6,7 +6,6 @@ package Medidores;
 
 import P_info.Lectura;
 import Medidores.Medidor;
-import Medidores.MedidorInteligente;
 import P_info.Plan;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -19,14 +18,14 @@ import java.util.ArrayList;
 //import com.mycompany.proyecto1_grupo11.Medidor;
 public class MedidorInteligente extends Medidor {
     private int horaspico;
-    private double telemetría;
+    private double telemetria;
     private double KilovatiosConsumidosNoPico;
     private double KilovatiosConsumidosPico;
 
-    public MedidorInteligente(int horaspico, double telemetría, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura) {
+    public MedidorInteligente(int horaspico, double telemetria, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura) {
         super(codigo, provincia, direccion, costoKwh, planContratado, lecturas, ultimaFechaCobrada, consumoUltimaFactura);
         this.horaspico = horaspico;
-        this.telemetría = telemetría;
+        this.telemetria = telemetria;
         this.KilovatiosConsumidosNoPico = KilovatiosConsumidosNoPico;
         this.KilovatiosConsumidosPico = KilovatiosConsumidosPico;
     }
@@ -37,8 +36,8 @@ public class MedidorInteligente extends Medidor {
         return horaspico;
     }
 
-    public double getTelemetría() {
-        return telemetría;
+    public double getTelemetria() {
+        return telemetria;
     }
 
 
@@ -56,4 +55,11 @@ public class MedidorInteligente extends Medidor {
         double total =  p.getCargoBase() + p.getCostoKwh() * this.KilovatiosConsumidosNoPico + 2*p.getCostoKwh()*this.KilovatiosConsumidosPico;
         return total;
     }
+
+    @Override
+    public String toString() {
+        return "Medidor Inteligente\n" + super.toString() + "Horas Pico: " + horaspico + "\n"+ "Telemetría: " + telemetria + "\n"+ "Kilovatios consumidos en horas no pico: " + KilovatiosConsumidosNoPico + "\n"+ "Kilovatios consumidos en horas pico: " + KilovatiosConsumidosPico;
+    }
+    
+    
 }

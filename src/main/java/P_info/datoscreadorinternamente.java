@@ -8,6 +8,7 @@ import Medidores.Medidor;
 import Usuarios.Usuario;
 import Usuarios.usuarioAbonado;
 import Usuarios.usuarioAdministrador;
+import Usuarios.usuarioOperario;
 import java.util.ArrayList;
 
 /**
@@ -18,10 +19,11 @@ public class datoscreadorinternamente {
     public datoscreadorinternamente(){
         
         Usuario usu = new Usuario("katumbac","0405");
-        usuarioAdministrador usuadmi = new usuarioAdministrador("admin", "superadmin");
+        usuarioOperario usuadmi = new usuarioOperario("admin", "superadmin");
+        //usuarioAdministrador usuadmi = new usuarioAdministrador("admin", "superadmin");
         //usuarioAbonado usuabo = new usuarioAbonado("Roberto", "090909", "robet@gmail.com", ArrayList<Medidor>, ArrayList<Factura> facturas, "re", "1234");
         //emp1.incrementarItemsVendidos(4);//este metodo no esta disponible en emp1
-        System.out.println(usu); //llama al metodo toString() en Empleado
+        System.out.println(usuadmi); //llama al metodo toString() en Empleado
 
     }
 }

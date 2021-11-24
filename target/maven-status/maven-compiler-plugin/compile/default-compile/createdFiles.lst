@@ -11,4 +11,5 @@ Medidores\MedidorInteligente.class
 P_info\Factura.class
 P_info\Lectura.class
 P_info\Main.class
+P_info\datoscreadorinternamente.class
 Usuarios\Usuario.class

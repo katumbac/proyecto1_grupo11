@@ -34,5 +34,11 @@ public class Lectura {
     public void setValorActual(double valorActual) {
         this.valorActual = valorActual;
     }
+
+    @Override
+    public String toString() {
+        return "Lectura\n" + "Fecha: " + fecha +"\n"+  "Valor actual:" + valorActual + "\n";
+    }
+    
     
 }

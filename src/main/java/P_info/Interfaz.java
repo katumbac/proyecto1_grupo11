@@ -5,7 +5,12 @@
 package P_info;
 
 import Usuarios.Usuario;
+
 import Usuarios.usuarioAdministrador;
+
+import Usuarios.usuarioAbonado;
+import Usuarios.usuarioAdministrador;
+import Usuarios.usuarioOperario;
 import java.util.Scanner;
 
 /**
@@ -21,17 +26,18 @@ public class Interfaz {
         //valores ingresados por el usuario
         sc = new Scanner(System.in);
         Usuario usu = new Usuario("katumbac","0405");
-        usuarioAdministrador usuadmi = new usuarioAdministrador("admin", "superadmin");
+        usuarioOperario usuadmi = new usuarioOperario("admin", "superadmin");
         
     }
     
     public void menuPrincipal(){
         String op = "";
         System.out.println("Bienvenido");
-        do{
+        do{            
             System.out.println("1. Iniciar Sesión");
             System.out.println("2. Salir");
-            System.out.println("Ingrese opcion");
+            
+            System.out.println("Opción:");
             op = sc.nextLine();
             
             switch(op){
@@ -50,6 +56,7 @@ public class Interfaz {
     
 
     private void opcion1(){
+
         System.out.println("\n Iniciar Sesion");
         System.out.println("Ingrese Usuario");
         String CUsuario = sc.nextLine();
@@ -57,8 +64,16 @@ public class Interfaz {
         String contra = sc.nextLine();
         sc.nextLine();//limpio el buffer
 
-        String op1 = "";
-        if(CUsuario.equals("abonado")){
+
+        Usuario usu = new Usuario(CUsuario,contra);
+        //Vendedor vene;
+        //si tipo es empleado cree une instancia de Empleado con los datos 
+        //si tipo es vendedor cree una instancia de Vendedor con los datos 
+        //agregue al empleado a la nomina
+     // Empleado emp =  new TecnoHogar();
+        if (usu instanceof usuarioAbonado){
+           //si el usuario es Usuario abonado
+           String op1;
             do{
                 System.out.println("Usuario Abonado");
                 System.out.println("1. Consultar Factura");
@@ -95,10 +110,10 @@ public class Interfaz {
                         break;
                 }
             }while(!op1.equals("4"));
-            
         }
         
-        else if(CUsuario.equals("admi")){
+        // si el usuario es Usuario Administrador
+        else if(usu instanceof usuarioAdministrador){
             String op2 = "";
             do{
                 System.out.println("Opciones Administrador");
@@ -173,11 +188,9 @@ public class Interfaz {
                         break;
                 }
             }while(!op2.equals("5"));
-        
-        
         }
-
-        else if(CUsuario.equals("ope")){
+        // Si usuario es operario
+        else if (usu instanceof usuarioOperario){  
             String op3 = "";
             do{
                 System.out.println("Usuario Operario");
@@ -202,12 +215,14 @@ public class Interfaz {
                         break;
                 }
             }while(!op3.equals("2"));
-        
-        
+         
+        } else {
+          System.out.println("No existe usuario");
         }
-            
-    }
+           
+    }          
 }
+
 
 
 

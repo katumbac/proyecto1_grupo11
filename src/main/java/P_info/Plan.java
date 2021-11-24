@@ -12,17 +12,17 @@ public class Plan {
     
     private String nombre;
     private double costoKwh;
-    private ArrayList provincias;
     private double cargoBase;
-    private ArrayList horaPico;
+    private ArrayList<Provincias> provincias;
+    private ArrayList<HorasPico> horaPico;
     
     
-    public Plan(String nombre, double costoKwh, ArrayList provincias, double cargoBase, ArrayList horaPico){
+    public Plan(String nombre, double costoKwh, ArrayList<Provincias> provincias, double cargoBase, ArrayList<HorasPico> horasPico){
         this.nombre = nombre;
         this.costoKwh = costoKwh;
         this.provincias = provincias;
         this.cargoBase = cargoBase;
-        this.horaPico = horaPico;
+        this.horaPico = horasPico;
     }
 
     public String getNombre() {
@@ -41,11 +41,11 @@ public class Plan {
         this.costoKwh = costoKwh;
     }
 
-    public ArrayList getProvincias() {
+    public ArrayList<Provincias> getProvincias() {
         return provincias;
     }
 
-    public void setProvincias(ArrayList provincias) {
+    public void setProvincias(ArrayList<Provincias> provincias) {
         this.provincias = provincias;
     }
 
@@ -57,11 +57,18 @@ public class Plan {
         this.cargoBase = cargoBase;
     }
 
-    public ArrayList getHoraPico() {
+    public ArrayList<HorasPico> getHoraPico() {
         return horaPico;
     }
 
-    public void setHoraPico(ArrayList horaPico) {
+    public void setHoraPico(ArrayList<HorasPico> horaPico) {
         this.horaPico = horaPico;
     }
+
+    @Override
+    public String toString() {
+        return "Plan\n" + "Nombre: " + nombre + "\n"+ "Costo Kwh:" + costoKwh + "\n"+ "Provincias: " + provincias + "\n"+ "Cargo base:" + cargoBase +"\n"+ "Hora pico:" + horaPico +"\n";
+    }
+    
+    
 }
