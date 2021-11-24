@@ -4,6 +4,7 @@
  */
 package P_info;
 
+import Medidores.Medidor;
 import Usuarios.Usuario;
 
 import Usuarios.usuarioAdministrador;
@@ -11,6 +12,7 @@ import Usuarios.usuarioAdministrador;
 import Usuarios.usuarioAbonado;
 import Usuarios.usuarioAdministrador;
 import Usuarios.usuarioOperario;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -18,9 +20,11 @@ import java.util.Scanner;
  * @author user
  */
 public class Interfaz {
-
+    private ArrayList<Plan> planes;
+    private ArrayList<Medidor> medidores;
+    private ArrayList<Usuario> usuarios;
     public Scanner sc;
-
+    
     public Interfaz(){
         //iniciamos la variable sc de tipo scanner que usaremos para leer los 
         //valores ingresados por el usuario
