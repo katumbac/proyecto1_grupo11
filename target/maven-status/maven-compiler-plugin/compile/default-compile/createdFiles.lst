@@ -3,6 +3,7 @@ P_info\Provincias.class
 P_info\HorasPico.class
 Medidores\MedidorAnalogico.class
 Usuarios\usuarioOperario.class
+P_info\prueba.class
 Usuarios\usuarioAdministrador.class
 P_info\Interfaz.class
 P_info\Plan.class

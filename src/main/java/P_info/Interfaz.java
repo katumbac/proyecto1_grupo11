@@ -60,7 +60,6 @@ public class Interfaz {
     
 
     private void opcion1(){
-
         System.out.println("\n Iniciar Sesion");
         System.out.println("Ingrese Usuario");
         String CUsuario = sc.nextLine();
