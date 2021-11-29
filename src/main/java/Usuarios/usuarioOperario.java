@@ -34,6 +34,7 @@ public class usuarioOperario extends Usuario {
          System.out.print("Última lectura realizada ");
          System.out.print("Lectura Anterior");
          System.out.print("Lectura Actual");
+         String lecactu = sc.nextLine();
          System.out.print("Kilovatios consumidos");
         }*/
         

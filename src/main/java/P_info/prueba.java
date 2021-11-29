@@ -4,7 +4,9 @@
  */
 package P_info;
 
+import Medidores.Medidor;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -45,5 +47,15 @@ public class prueba {
         //operaciones
         LocalTime timeDespues= timeActual.plusHours(2).plusMinutes(40);
         System.out.print(timeDespues);
+        LocalDateTime now = LocalDateTime.now();  
+        System.out.println("Before Formatting: " + now);  
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");  
+        String formatDateTime = now.format(format);  
+        System.out.println("After Formatting: " + formatDateTime); 
+        
+        LocalDateTime newDateTime = now.plusHours(2);
+        LocalDateTime newDateTime1 = now.plusHours(3);
+        LocalTime ap1 = LocalTime.parse("08:20");
+        System.out.print(newDateTime);
     }
 }
