@@ -6,7 +6,7 @@ package P_info;
 
 import Medidores.Medidor;
 import Usuarios.usuarioAbonado;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  *
@@ -17,16 +17,16 @@ public class Factura {
     private String nombreAbonado;
     private String codigoMedidor;
     private String nombrePlan;
-    private LocalDateTime fechaEmision;
-    private LocalDateTime fechaLecturaAnt;
-    private LocalDateTime fechaLecturaAct;
+    private LocalDate fechaEmision;
+    private LocalDate fechaLecturaAnt;
+    private LocalDate fechaLecturaAct;
     private int diasFacturados;
     private Lectura lecturaAnt;
     private double consumo;
     private double cargoPlan;
     private double totalPagar;
 
-    public Factura(int numeroFactura, usuarioAbonado nombreAbonado, Medidor codigoMedidor, Plan nombrePlan, LocalDateTime fechaEmision, LocalDateTime fechaLecturaAnt, LocalDateTime fechaLecturaAct, int diasFacturados, Lectura lecturaAnt, double consumo, double cargoPlan, double totalPagar) {
+    public Factura(int numeroFactura, usuarioAbonado nombreAbonado, Medidor codigoMedidor, Plan nombrePlan, LocalDate fechaEmision, LocalDate fechaLecturaAnt, LocalDate fechaLecturaAct, int diasFacturados, Lectura lecturaAnt, double consumo, double cargoPlan, double totalPagar) {
         this.numeroFactura = numeroFactura;
         this.nombreAbonado = nombreAbonado.getNombre();
         this.codigoMedidor = codigoMedidor.getCodigo();
@@ -57,15 +57,15 @@ public class Factura {
         return nombrePlan;
     }
 
-    public LocalDateTime getFechaEmision() {
+    public LocalDate getFechaEmision() {
         return fechaEmision;
     }
 
-    public LocalDateTime getFechaLecturaAnt() {
+    public LocalDate getFechaLecturaAnt() {
         return fechaLecturaAnt;
     }
 
-    public LocalDateTime getFechaLecturaAct() {
+    public LocalDate getFechaLecturaAct() {
         return fechaLecturaAct;
     }
 

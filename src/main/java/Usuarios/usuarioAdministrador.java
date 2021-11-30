@@ -8,7 +8,7 @@ import Medidores.MedidorInteligente;
 import Usuarios.usuarioAbonado;
 import Usuarios.Usuario;
 import P_info.Plan;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -111,14 +111,14 @@ public class usuarioAdministrador extends Usuario {
         }
     }
     
-    public void simularMediciones (LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+    public void simularMediciones (LocalDate fechaInicio, LocalDate fechaFin) {
         
     }
     
     public void realizarFacturacion() {
         int total = 0;
         for(Medidor m: medidores){
-            total += m.calcularValorPagar(LocalDateTime.now());
+            total += m.calcularValorPagar(LocalDate.now());
         System.out.print("******FACTURA*****");
         System.out.print("Fecha de emision: ");
         System.out.print("Codigo del medidor: ");

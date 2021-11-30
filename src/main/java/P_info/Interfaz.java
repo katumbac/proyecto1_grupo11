@@ -8,7 +8,7 @@ import Medidores.Medidor;
 import Usuarios.Usuario;
 
 import Usuarios.usuarioAdministrador;
-
+import P_info.Factura;
 import Usuarios.usuarioAbonado;
 import Usuarios.usuarioAdministrador;
 import Usuarios.usuarioOperario;
@@ -37,7 +37,7 @@ public class Interfaz {
         //valores ingresados por el usuario
         sc = new Scanner(System.in);
         usuarios.add(new Usuario("katumbac","0405"));
-        usuarios.add(new usuarioAdministrador(planes, usuarios, medidores, "admins", "superadmin"));
+        usuarios.add(new usuarioAdministrador(planes, usuarios, medidores, "admin", "superadmin"));
         
         //Dos Operarios
         usuarios.add(new usuarioOperario("operario1","1234"));
@@ -78,16 +78,42 @@ public class Interfaz {
         //usuarioAbonado(String nombreUsuario, String cedula, String correoElectronico, ArrayList<Medidor> medidores, ArrayList<Factura> facturas, String nombre, String contrasenia)
         ArrayList<Medidor> medidor1 = new ArrayList<>();
         //MedidorAnalogico(double KilovatiosConsumidos, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura)
-        ArrayList<Lectura> lecturas = new ArrayList<>();
+        ArrayList<Lectura> lecturas1 = new ArrayList<>();
         LocalDate fecha= LocalDate.of(2024,03,04);
-        lecturas.add(new Lectura(fecha, 5.00));
+        Lectura lect1 = new Lectura(fecha, 5.00);      
+        lecturas1.add(lect1);
+        
+        //Dos abonados
+        //Uno de los abonados debe tener dos medidores: uno de tipo analógico y uno de tipo residencial
+        //El otro abonado debe tener un medidor analógico
+
         //medidor1.add(new MedidorAnalogico(5.00, "COD1", "El_Oro","Portete",3.00, plan1 ,lecturas, ini1,tini1));
+        ArrayList<Factura> facturas1 = new ArrayList<>();
+        //
+        
+        //Anlogico
+        usuarios.add(new usuarioAbonado("Abonado1", "0909123456", "ktumbaco2002@gmail.com", medidor1, facturas1, "operario1","1234"));
+        //analogico y residencial
+        ArrayList<Medidor> medidor2 = new ArrayList<>();
+        //medidor2.add(new MedidorAnalogico(5.00, "COD2", "Guayas","Argentina",3.00, plan2 ,lecturas, ini1,tini1))
         //MedidorInteligente(int horaspico, double telemetria, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura)
-        //medidor1.add(new MedidorInteligente(5.00, "COD1", "El_Oro","Portete",3.00, plan1 ,lecturas, ini1,tini1));
-        usuarios.add(new usuarioAbonado("Abonado1", "0909123456", "ktumbaco2002@gmail.com", medidor1, facturas, "operario1","1234"));
-        usuarios.add(new usuarioAbonado("Abonado2", "0909654321", "ktumbaco2002@gmail.com", medidores, facturas, "operario2","4321"));
+        //medidor2.add(new MedidorInteligente(5.00,3.00,6.00,8.00 "COD1", "El_Oro","Portete",3.00, plan1 ,lecturas, ini1,tini1));
+        
+        //Factura(int numeroFactura, usuarioAbonado nombreAbonado, Medidor codigoMedidor, Plan nombrePlan, LocalDate fechaEmision, LocalDate fechaLecturaAnt, LocalDate fechaLecturaAct, int diasFacturados, Lectura lecturaAnt, double consumo, double cargoPlan, double totalPagar)  
+        LocalDate fecha1= LocalDate.of(2024,03,04);
+        Lectura lecturas2 = new Lectura(fecha1, 5.00);
+        LocalDate fechaemi = LocalDate.of(2020,03,04);
+        LocalDate fechaLecturaAnt = LocalDate.of(2024,02,04);
+        
+        //Factura fact = new Factura(001, "Abonado1", "COD1", plan1, fechaemi,fechaLecturaAnt,5,lecturas2, 5.00, 3.00, 5.00);
+        
+        usuarios.add(new usuarioAbonado("Abonado2", "0909654321", "ktumbaco2002@gmail.com", medidor2, facturas, "operario2","4321"));
     
         //registrar dos  mediciones
+        String codp = "COD2";
+        String codp1 = "COD3";
+        //registrarMedicion(codp);
+        //registrarMedicion(codp1);
         
     }
     
