@@ -103,7 +103,7 @@ public class usuarioAbonado extends Usuario {
     }
     
     public void consultarHistoricoFacturado(String Codigo, Plan plan) {
-        Scanner sc = new Scanner(System.in); 
+        //Scanner sc = new Scanner(System.in); 
         
         System.out.print("Medidores Asociados");
         System.out.print("Código Medidor         Tipo Medidor       Nombre Del Plan");
@@ -116,7 +116,7 @@ public class usuarioAbonado extends Usuario {
     }
     
     public void consultarConsumoHora(String Codigo) {
-        Scanner sc = new Scanner(System.in); 
+        //Scanner sc = new Scanner(System.in); 
         
         System.out.print("Medidores Inteligentes Asociados");
         System.out.print("Código Medidor         Tipo Medidor       Nombre Del Plan");

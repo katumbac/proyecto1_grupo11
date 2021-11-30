@@ -4,26 +4,26 @@
  */
 package P_info;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  *
  * @author ROBERTO
  */
 public class Lectura {
-    private LocalDateTime fecha;
+    private LocalDate fecha;
     private double valorActual;
     
-    public Lectura(LocalDateTime fecha, double valorActual){
+    public Lectura(LocalDate fecha, double valorActual){
         this.fecha = fecha;
         this.valorActual = valorActual;
     }
 
-    public LocalDateTime getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDateTime fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

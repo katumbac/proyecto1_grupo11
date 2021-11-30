@@ -12,7 +12,10 @@ import Usuarios.usuarioAdministrador;
 import Usuarios.usuarioAbonado;
 import Usuarios.usuarioAdministrador;
 import Usuarios.usuarioOperario;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -23,14 +26,68 @@ public class Interfaz {
     private ArrayList<Plan> planes;
     private ArrayList<Medidor> medidores;
     private ArrayList<Usuario> usuarios;
+    private ArrayList<Factura> facturas;
     public Scanner sc;
     
     public Interfaz(){
         //iniciamos la variable sc de tipo scanner que usaremos para leer los 
         //valores ingresados por el usuario
         sc = new Scanner(System.in);
-        Usuario usu = new Usuario("katumbac","0405");
-        usuarioOperario usuadmi = new usuarioOperario("admin", "superadmin");
+        //iniciamos la variable sc de tipo scanner que usaremos para leer los 
+        //valores ingresados por el usuario
+        sc = new Scanner(System.in);
+        usuarios.add(new Usuario("katumbac","0405"));
+        usuarios.add(new usuarioAdministrador(planes, usuarios, medidores, "admins", "superadmin"));
+        
+        //Dos Operarios
+        usuarios.add(new usuarioOperario("operario1","1234"));
+        usuarios.add(new usuarioOperario("operario2","4321"));
+        
+        //Dos planes
+        //PLAN 1
+        ArrayList<Provincias> ProvinciasSector1  = new ArrayList();
+        ProvinciasSector1.add(Provincias.El_Oro);
+        ArrayList<HorasPico> horapico1 = new ArrayList<>();
+        LocalTime ini1= LocalTime.parse("08:00:00");
+        LocalTime fin1= LocalTime.parse("10:00:00");
+        LocalTime ini2= LocalTime.parse("07:00:00");
+        LocalTime fin2= LocalTime.parse("09:00:00");
+        horapico1.addAll(Arrays.asList(new HorasPico(ini1, fin1) ,new HorasPico(ini2,fin2)));
+        //Plan(String nombre, double costoKwh, ArrayList<Provincias> provincias, double cargoBase, ArrayList<HorasPico> horasPico)
+        Plan plan1 = new Plan("Plan1", 5.00, ProvinciasSector1, 6.00, horapico1);
+        planes.add(plan1);
+        
+        
+        //PLAN 2
+        ArrayList<Provincias> ProvinciasSector2  = new ArrayList();      
+        ProvinciasSector2.addAll(Arrays.asList(Provincias.Loja,Provincias.Imbabura,Provincias.Guayas,Provincias.Pastaza));
+        ArrayList<HorasPico> horapico2 = new ArrayList<>();
+        LocalTime tini1= LocalTime.parse("07:00:00");
+        LocalTime tfin1= LocalTime.parse("08:00:00");
+        LocalTime tini2= LocalTime.parse("08:00:00");
+        LocalTime tfin2= LocalTime.parse("10:00:00");
+        horapico1.addAll(Arrays.asList(new HorasPico(tini1, tfin1) ,new HorasPico(tini2,tfin2)));
+        Plan plan2 = new Plan("Plan1", 5.00, ProvinciasSector1, 6.00, horapico1);
+        planes.add(plan2);
+        
+
+        
+        //Dos Abonados
+        //Uno de los abonados debe tener dos medidores: uno de tipo analógico y uno de tipo residencial
+	//El otro abonado debe tener un medidor analógico
+        //usuarioAbonado(String nombreUsuario, String cedula, String correoElectronico, ArrayList<Medidor> medidores, ArrayList<Factura> facturas, String nombre, String contrasenia)
+        ArrayList<Medidor> medidor1 = new ArrayList<>();
+        //MedidorAnalogico(double KilovatiosConsumidos, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura)
+        ArrayList<Lectura> lecturas = new ArrayList<>();
+        LocalDate fecha= LocalDate.of(2024,03,04);
+        lecturas.add(new Lectura(fecha, 5.00));
+        //medidor1.add(new MedidorAnalogico(5.00, "COD1", "El_Oro","Portete",3.00, plan1 ,lecturas, ini1,tini1));
+        //MedidorInteligente(int horaspico, double telemetria, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura)
+        //medidor1.add(new MedidorInteligente(5.00, "COD1", "El_Oro","Portete",3.00, plan1 ,lecturas, ini1,tini1));
+        usuarios.add(new usuarioAbonado("Abonado1", "0909123456", "ktumbaco2002@gmail.com", medidor1, facturas, "operario1","1234"));
+        usuarios.add(new usuarioAbonado("Abonado2", "0909654321", "ktumbaco2002@gmail.com", medidores, facturas, "operario2","4321"));
+    
+        //registrar dos  mediciones
         
     }
     

@@ -6,7 +6,7 @@ package Medidores;
 
 import P_info.Lectura;
 import P_info.Plan;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -20,10 +20,10 @@ public abstract class Medidor {
     private double costoKwh;
     private Plan planContratado;
     private ArrayList<Lectura> lecturas;
-    private LocalDateTime ultimaFechaCobrada;
-    private LocalDateTime consumoUltimaFactura;
+    private LocalDate ultimaFechaCobrada;
+    private LocalDate consumoUltimaFactura;
 
-    public Medidor(String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura) {
+    public Medidor(String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura) {
         this.codigo = codigo;
         this.provincia = provincia;
         this.direccion = direccion;
@@ -37,7 +37,7 @@ public abstract class Medidor {
 
     
 
-    public abstract double calcularValorPagar(LocalDateTime FechaAccion);
+    public abstract double calcularValorPagar(LocalDate FechaAccion);
 
     public String getCodigo() {
         return codigo;
