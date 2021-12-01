@@ -5,6 +5,7 @@
 package Usuarios;
 import Medidores.Medidor;
 import Medidores.MedidorInteligente;
+import P_info.Correo;
 import Usuarios.usuarioAbonado;
 import Usuarios.Usuario;
 import P_info.Plan;
@@ -103,7 +104,8 @@ public class usuarioAdministrador extends Usuario {
                         break;
                         }
                     }
-                    
+                    //(String destinatario, String asunto, String contenido)
+                    Correo.enviarCorreo(correo,"Registro en el sistema", "Usuario: "+ cedula +"\n Contraseña: "+contrasenia);
                     usuarios.add(new Usuario(cedula,contrasenia));
                     
                 }
