@@ -31,14 +31,14 @@ public class Interfaz {
     private ArrayList<Factura> facturas;
     public Scanner sc;
     
-    public datoscreadorinternamente datos;
+    public DatosCreadorInternamente datos;
     
     public Interfaz(){
         //iniciamos la variable sc de tipo scanner que usaremos para leer los 
         //valores ingresados por el usuario
         sc = new Scanner(System.in);
         
-        datos = new datoscreadorinternamente();
+        datos = new DatosCreadorInternamente();
         /**usuarios = new ArrayList<Usuario>();//inicializar
         //iniciamos la variable sc de tipo scanner que usaremos para leer los 
         //valores ingresados por el usuario

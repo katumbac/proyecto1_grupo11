@@ -20,13 +20,13 @@ import java.util.Scanner;
  *
  * @author user
  */
-public class datoscreadorinternamente {
+public class DatosCreadorInternamente {
     private ArrayList<Plan> planes;
     private ArrayList<Medidor> medidores;
     private ArrayList<Usuario> usuarios;
     private ArrayList<Factura> facturas;
     public Scanner sc;
-    public datoscreadorinternamente(){
+    public DatosCreadorInternamente(){
         usuarios = new ArrayList<Usuario>();
         usuarios.add(new Usuario("katumbac","0405"));
         //usuarios.add(new usuarioAdministrador(planes, usuarios, medidores, "admin", "superadmin"));
