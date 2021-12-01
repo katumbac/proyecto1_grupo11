@@ -23,6 +23,7 @@ public class MedidorInteligente extends Medidor {
     private double KilovatiosConsumidosPico;
 
     public MedidorInteligente(int horaspico, double telemetria, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura) {
+        
         super(codigo, provincia, direccion, costoKwh, planContratado, lecturas, ultimaFechaCobrada, consumoUltimaFactura);
         this.horaspico = horaspico;
         this.telemetria = telemetria;
