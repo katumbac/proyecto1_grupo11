@@ -32,7 +32,7 @@ public class Main {
         /*Interfaz uit = new Interfaz();
         uit.menuPrincipal();*/
         
-        Correo.enviarCorreo("lnburgos@espol.edu.ec", "Prueba Correo", "hola mundo");
+        Correo.enviarCorreo("kevvbena@espol.edu.ec", "Prueba Correo", "hola mundo");
 
     }
     
