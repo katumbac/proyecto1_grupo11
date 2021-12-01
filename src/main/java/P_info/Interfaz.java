@@ -5,6 +5,8 @@
 package P_info;
 
 import Medidores.Medidor;
+import Medidores.MedidorAnalogico;
+import Medidores.MedidorInteligente;
 import Usuarios.Usuario;
 
 import Usuarios.usuarioAdministrador;
@@ -29,20 +31,27 @@ public class Interfaz {
     private ArrayList<Factura> facturas;
     public Scanner sc;
     
+    public datoscreadorinternamente datos;
+    
     public Interfaz(){
         //iniciamos la variable sc de tipo scanner que usaremos para leer los 
         //valores ingresados por el usuario
         sc = new Scanner(System.in);
+        
+        datos = new datoscreadorinternamente();
+        /**usuarios = new ArrayList<Usuario>();//inicializar
         //iniciamos la variable sc de tipo scanner que usaremos para leer los 
         //valores ingresados por el usuario
-        sc = new Scanner(System.in);
         usuarios.add(new Usuario("katumbac","0405"));
-        usuarios.add(new usuarioAdministrador(planes, usuarios, medidores, "admin", "superadmin"));
+        //usuarios.add(new Usuario("operario1","1234"));
+        //usuarios.add(new usuarioAdministrador(planes, usuarios, medidores, "admin", "superadmin"));
         
         //Dos Operarios
-        usuarios.add(new usuarioOperario("operario1","1234"));
-        usuarios.add(new usuarioOperario("operario2","4321"));
+        usuarioOperario op1= new usuarioOperario("op1","a");
+        usuarios.add(op1);*/
         
+        //usuarios.add(new usuarioOperario("operario2","4321"));
+        /**
         //Dos planes
         //PLAN 1
         ArrayList<Provincias> ProvinciasSector1  = new ArrayList();
@@ -77,53 +86,55 @@ public class Interfaz {
 	//El otro abonado debe tener un medidor analógico
         //usuarioAbonado(String nombreUsuario, String cedula, String correoElectronico, ArrayList<Medidor> medidores, ArrayList<Factura> facturas, String nombre, String contrasenia)
         ArrayList<Medidor> medidor1 = new ArrayList<>();
-        //MedidorAnalogico(double KilovatiosConsumidos, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura)
+        
         ArrayList<Lectura> lecturas1 = new ArrayList<>();
-        LocalDate fecha= LocalDate.of(2024,03,04);
-        Lectura lect1 = new Lectura(fecha, 5.00);      
+        LocalDate fechaini= LocalDate.of(2023,03,04);
+        LocalDate fechafin= LocalDate.of(2024,03,04);
+        Lectura lect1 = new Lectura(fechaini, 5.00);      
         lecturas1.add(lect1);
-        
-        //Dos abonados
-        //Uno de los abonados debe tener dos medidores: uno de tipo analógico y uno de tipo residencial
-        //El otro abonado debe tener un medidor analógico
-
-        //medidor1.add(new MedidorAnalogico(5.00, "COD1", "El_Oro","Portete",3.00, plan1 ,lecturas, ini1,tini1));
+        //MedidorAnalogico(double KilovatiosConsumidos, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura)
+        medidor1.add(new MedidorAnalogico(5.00, "COD1", "El_Oro","Portete",3.00, plan1 ,lecturas1, fechaini,fechafin));
         ArrayList<Factura> facturas1 = new ArrayList<>();
-        //
-        
-        //Anlogico
+       
+        //Analogico
         usuarios.add(new usuarioAbonado("Abonado1", "0909123456", "ktumbaco2002@gmail.com", medidor1, facturas1, "operario1","1234"));
+        
+
         //analogico y residencial
         ArrayList<Medidor> medidor2 = new ArrayList<>();
-        //medidor2.add(new MedidorAnalogico(5.00, "COD2", "Guayas","Argentina",3.00, plan2 ,lecturas, ini1,tini1))
+        medidor2.add(new MedidorAnalogico(5.00, "COD2", "Guayas","Argentina",3.00, plan2 ,lecturas1, fechaini,fechafin));
         //MedidorInteligente(int horaspico, double telemetria, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura)
-        //medidor2.add(new MedidorInteligente(5.00,3.00,6.00,8.00 "COD1", "El_Oro","Portete",3.00, plan1 ,lecturas, ini1,tini1));
+        LocalDate fechafin2= LocalDate.of(2024,03,04);
+        //medidor2.add(new MedidorInteligente(5.00,3.00,6.00,8.00 "COD2", "El_Oro","Portete",3.00, plan1 ,lecturas1, fechaini, fechafin2));
         
-        //Factura(int numeroFactura, usuarioAbonado nombreAbonado, Medidor codigoMedidor, Plan nombrePlan, LocalDate fechaEmision, LocalDate fechaLecturaAnt, LocalDate fechaLecturaAct, int diasFacturados, Lectura lecturaAnt, double consumo, double cargoPlan, double totalPagar)  
+        
         LocalDate fecha1= LocalDate.of(2024,03,04);
-        Lectura lecturas2 = new Lectura(fecha1, 5.00);
+        //Lectura lecturas2 = new Lectura(fecha1, 5.00);
         LocalDate fechaemi = LocalDate.of(2020,03,04);
-        LocalDate fechaLecturaAnt = LocalDate.of(2024,02,04);
+        LocalDate fechaLecturaAct = LocalDate.now();
+        LocalDate fechaLecturaAnt = LocalDate.of(2020,02,04);
+        //Factura(int numeroFactura, usuarioAbonado nombreAbonado, Medidor codigoMedidor, Plan nombrePlan, LocalDate fechaEmision, LocalDate fechaLecturaAnt, LocalDate fechaLecturaAct, int diasFacturados, Lectura lecturaAnt, double consumo, double cargoPlan, double totalPagar)
+        ArrayList<Factura> facturas2 = new ArrayList<>();
+        Lectura lectAnt = new Lectura(fechaLecturaAnt, 5);
+        //Factura fact = new Factura(001, "Abonado2", "COD1", plan1, fechaemi, fechaLecturaAnt, fechaLecturaAct,5,lectAnt, 5.00, 3.00, 1);
+        //facturas2.add(fact);
+        usuarios.add(new usuarioAbonado("Abonado2", "0909654321", "ktumbaco2002@gmail.com", medidor2, facturas2, "operario2","4321"));
         
-        //Factura fact = new Factura(001, "Abonado1", "COD1", plan1, fechaemi,fechaLecturaAnt,5,lecturas2, 5.00, 3.00, 5.00);
-        
-        usuarios.add(new usuarioAbonado("Abonado2", "0909654321", "ktumbaco2002@gmail.com", medidor2, facturas, "operario2","4321"));
-    
         //registrar dos  mediciones
         String codp = "COD2";
         String codp1 = "COD3";
-        //registrarMedicion(codp);
-        //registrarMedicion(codp1);
+        usuarioOperario op = null;
+        op.registrarMedicion(codp);
+        op.registrarMedicion(codp1);*/
         
     }
     
     public void menuPrincipal(){
         String op = "";
         System.out.println("Bienvenido");
-        do{            
+        while(!op.equals("2")){            
             System.out.println("1. Iniciar Sesión");
             System.out.println("2. Salir");
-            
             System.out.println("Opción:");
             op = sc.nextLine();
             
@@ -138,7 +149,7 @@ public class Interfaz {
                     System.out.println("Opcion invalida");
                     break;
             }
-        }while(!op.equals("2")); 
+        }//while(!op.equals("2")); 
     }
     
 
@@ -148,15 +159,9 @@ public class Interfaz {
         String CUsuario = sc.nextLine();
         System.out.println("Ingrese Contraseña");
         String contra = sc.nextLine();
-        sc.nextLine();//limpio el buffer
-
 
         Usuario usu = new Usuario(CUsuario,contra);
-        //Vendedor vene;
-        //si tipo es empleado cree une instancia de Empleado con los datos 
-        //si tipo es vendedor cree una instancia de Vendedor con los datos 
-        //agregue al empleado a la nomina
-     // Empleado emp =  new TecnoHogar();
+        
         if (usu instanceof usuarioAbonado){
            //si el usuario es Usuario abonado
            String op1;

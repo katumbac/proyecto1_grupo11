@@ -20,6 +20,7 @@ public class Main {
         String nUsuario = sc.nextLine();
         sc.nextLine();
         
+        * 
         System.out.print("Ingrese contraseña: ");
         String contrasenia = sc.nextLine();
         sc.nextLine();
@@ -27,7 +28,7 @@ public class Main {
                 
         sc.close();*/
         
-        
+        //datoscreadorinternamente datos = new datoscreadorinternamente();
         Interfaz uit = new Interfaz();
         uit.menuPrincipal();
         
