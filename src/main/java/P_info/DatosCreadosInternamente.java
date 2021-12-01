@@ -5,29 +5,24 @@
 package P_info;
 
 import Medidores.Medidor;
-import Medidores.MedidorAnalogico;
 import Usuarios.Usuario;
-import Usuarios.usuarioAbonado;
-import Usuarios.usuarioAdministrador;
 import Usuarios.usuarioOperario;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  *
  * @author user
  */
-public class datoscreadorinternamente {
+public class DatosCreadosInternamente {
     private ArrayList<Plan> planes;
     private ArrayList<Medidor> medidores;
     private ArrayList<Usuario> usuarios;
     private ArrayList<Factura> facturas;
     public Scanner sc;
-    public datoscreadorinternamente(){
-        
+
+    public DatosCreadosInternamente(){
+
         usuarios = new ArrayList<Usuario>();
         planes=new ArrayList<Plan>();
         medidores = new ArrayList<Medidor>();

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import P_info.datoscreadorinternamente;
+import P_info.DatosCreadosInternamente;
 
 /**
  *
@@ -33,16 +33,17 @@ public class Interfaz {
     private ArrayList<Factura> facturas;
     public Scanner sc;
     
-    public datoscreadorinternamente datos;
+    public DatosCreadosInternamente datos;
     
     public Interfaz(){
         //iniciamos la variable sc de tipo scanner que usaremos para leer los 
         //valores ingresados por el usuario
         sc = new Scanner(System.in);
         
-        datos = new datoscreadorinternamente();
 
-        /**usuarios = new ArrayList<Usuario>();//inicializar
+        datos = new DatosCreadosInternamente();
+
+        usuarios = new ArrayList<Usuario>();//inicializar
         //iniciamos la variable sc de tipo scanner que usaremos para leer los 
         //valores ingresados por el usuario
         usuarios.add(new Usuario("katumbac","0405"));
@@ -51,8 +52,8 @@ public class Interfaz {
         
         //Dos Operarios
         usuarioOperario op1= new usuarioOperario("op1","a");
-        usuarios.add(op1);*/
-        
+        usuarios.add(op1);
+        /**
         //usuarios.add(new usuarioOperario("operario2","4321"));
         /**
         //Dos planes
