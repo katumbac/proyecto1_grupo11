@@ -27,7 +27,10 @@ public class datoscreadorinternamente {
     private ArrayList<Factura> facturas;
     public Scanner sc;
     public datoscreadorinternamente(){
+        
         usuarios = new ArrayList<Usuario>();
+        planes=new ArrayList<Plan>();
+        medidores = new ArrayList<Medidor>();
         usuarios.add(new Usuario("katumbac","0405"));
         //usuarios.add(new usuarioAdministrador(planes, usuarios, medidores, "admin", "superadmin"));
         

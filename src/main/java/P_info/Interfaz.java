@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import P_info.datoscreadorinternamente;
+
 /**
  *
  * @author user
@@ -39,6 +41,7 @@ public class Interfaz {
         sc = new Scanner(System.in);
         
         datos = new datoscreadorinternamente();
+
         /**usuarios = new ArrayList<Usuario>();//inicializar
         //iniciamos la variable sc de tipo scanner que usaremos para leer los 
         //valores ingresados por el usuario
@@ -154,15 +157,46 @@ public class Interfaz {
     
 
     private void opcion1(){
+        //ArrayList<Usuario> usuarios;
         System.out.println("\n Iniciar Sesion");
         System.out.println("Ingrese Usuario");
         String CUsuario = sc.nextLine();
         System.out.println("Ingrese Contraseña");
         String contra = sc.nextLine();
+        //usuarioOperario(CUsuario, contra);
 
-        Usuario usu = new Usuario(CUsuario,contra);
+        usuarios = new ArrayList<Usuario>();
+        //Recorre la lista usuario y dependiendo de si es instancia de los otros usuarios, llamas a esos métodos
+        Object dat;
+        if(usuarios != null){
+            System.out.print(usuarios);
+            /**for (Usuario dat: usuarios){
+                System.out.print("Usuario abonado");
+            }*/
+        }
         
-        if (usu instanceof usuarioAbonado){
+        /**;
+        for (dat: usuarios){
+            System.out.print(dat);
+            if(s instanceof usuarioAbonado){
+                if(CUsuario.equals(s.getNombre())){
+                    System.out.print("Usuario abonado");
+                }
+            }else if (s instanceof usuarioOperario){
+                if(CUsuario.equals(s.getNombre())){
+                   System.out.print("Usuario Operario"); 
+                }
+            }else if(s instanceof usuarioAdministrador){
+                if(CUsuario.equals(s.getNombre())){
+                   System.out.print("Usuario Adminstrador"); 
+                }
+            }
+        }*/
+     
+         
+        /**
+        //if (usu instanceof usuarioAbonado){
+        if (usu instanceof Usuario){
            //si el usuario es Usuario abonado
            String op1;
             do{
@@ -171,7 +205,7 @@ public class Interfaz {
                 System.out.println("2. Consultar histórico facturado");
                 System.out.println("3. Consultar consumos por hora");
                 System.out.println("4. Salir");
-                System.out.println("Ingrese opcion");
+                System.out.print("Ingrese opcion");
                 op1 = sc.nextLine();
             
                 switch(op1){
@@ -311,7 +345,7 @@ public class Interfaz {
          
         } else {
           System.out.println("No existe usuario");
-        }
+        }*/
            
     }          
 }
