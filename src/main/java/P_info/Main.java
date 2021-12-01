@@ -29,10 +29,10 @@ public class Main {
         sc.close();*/
         
         //datoscreadorinternamente datos = new datoscreadorinternamente();
-        Interfaz uit = new Interfaz();
-        uit.menuPrincipal();
+        /*Interfaz uit = new Interfaz();
+        uit.menuPrincipal();*/
         
+        Correo.enviarCorreo("robertcarlos530@gmail.com", "Prueba", "Hola mundo");
     }
-    
     
 }
