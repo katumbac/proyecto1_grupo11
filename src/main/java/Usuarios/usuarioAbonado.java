@@ -82,8 +82,10 @@ public class usuarioAbonado extends Usuario {
          * a consultar y se muestran los detalles de las facturas */
         System.out.print("Facturas Asociadas");
         System.out.print("Número de Factura         Fecha Emisión       Código Medidor");
-        //for(Factura f: ){
-        //}
+        for(Factura f: facturas){
+            System.out.println(f);
+        }
+        
         
         System.out.print("Ingrese código factura");
         int cod = sc.nextInt();

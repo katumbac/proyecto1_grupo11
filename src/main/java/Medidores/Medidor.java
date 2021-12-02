@@ -100,6 +100,8 @@ public abstract class Medidor {
     public String toString() {
         return "Código: " + codigo + "\n"+ "Provincias: " + planContratado.getProvincias() + "\n"+ "Direccion: " + direccion + "\n"+ "Costo Kwh: " + costoKwh + "\n"+ "Plan contratado: " + planContratado.getNombre() + "\n"+ "Lecturas:" + lecturas + "\n"+ "Última fecha cobrada: " + ultimaFechaCobrada + "\n"+ "Consumo última factura: " + consumoUltimaFactura+"\n";
     }
+
+    
     
     
 }

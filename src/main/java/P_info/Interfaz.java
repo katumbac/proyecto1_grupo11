@@ -160,12 +160,12 @@ public class Interfaz {
 
                                     ArrayList<HorasPico> horasPico = new ArrayList<>();
                                     
-                                    System.out.println("Ingrese Horas Pico (hh:mm) separadas por coma: ");
+                                    /**System.out.println("Ingrese Horas Pico (hh:mm) separadas por coma: ");
                                     String horaspico = sc.nextLine();
                                     String[] horas = horaspico.split(",");
                                     for(int i = 1; i<horas.length;i+=2){
                                         horasPico.add(new HorasPico(LocalTime.parse(horas[i-1]),LocalTime.parse(horas[i]))); 
-                                    }
+                                    }*/
 
                                     ua.registrarPlan(plan, kilohora, provincias, cargobase, horasPico);
                                     break;
@@ -203,6 +203,7 @@ public class Interfaz {
                                     break;
                                 case "4":
                                     System.out.println("4. Realizar Facturación");
+                                    ua.realizarFacturacion();
                                     //Al ingresar esta opción se debe generar las facturas de todos los medidores que se encuentran registrados en el sistema. El total a pagar depende del plan contratado y el número de kilovatios consumidos. 
                                     break;
                                 case "5":
@@ -216,9 +217,9 @@ public class Interfaz {
                     } // Si usuario es operario
                     else if (us instanceof usuarioOperario) {
                         String op3 = "";
+                        usuarioOperario uo = (usuarioOperario) us;
                         do {
                             System.out.println("Usuario Operario");
-
                             System.out.println("1. Registrar Medición");
                             System.out.println("2. Salir");
                             System.out.println("Ingrese opcion");
@@ -227,9 +228,9 @@ public class Interfaz {
                             switch (op3) {
                                 case "1":
                                     System.out.println("1. Registrar Medición");
-                                    System.out.print("Ingrese codigo del medidor: ");
+                                    System.out.println("Ingrese codigo del medidor: ");
                                     String cod = sc.nextLine();
-                                    //registrarMedicion(cod);
+                                    uo.registrarMedicion(cod);
                                     //Al ingresar esta opción se debe generar las facturas de todos los medidores que se encuentran registrados en el sistema. El total a pagar depende del plan contratado y el número de kilovatios consumidos. 
 
                                     break;

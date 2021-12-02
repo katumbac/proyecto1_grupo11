@@ -25,6 +25,7 @@ public class DatosCreadosInternamente {
     private ArrayList<Plan> planes;
     private ArrayList<Medidor> medidores;
     private ArrayList<Usuario> usuarios;
+    private ArrayList<Lectura> lecturas;
     public Scanner sc;
 
     public DatosCreadosInternamente(){
@@ -32,7 +33,7 @@ public class DatosCreadosInternamente {
         usuarios = new ArrayList<Usuario>();
         planes=new ArrayList<Plan>();
         medidores = new ArrayList<Medidor>();
-        
+        lecturas = new ArrayList<Lectura>();
         
         //Dos Operarios
         usuarios.add(new usuarioOperario("op","1234"));
@@ -81,6 +82,7 @@ public class DatosCreadosInternamente {
         LocalDate fechafin= LocalDate.of(2024,03,04);
         Lectura lect1 = new Lectura(fechaini, 5.00);      
         lecturas1.add(lect1);
+        lecturas.add(lect1);
         //MedidorAnalogico(double KilovatiosConsumidos, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDateTime ultimaFechaCobrada, LocalDateTime consumoUltimaFactura)
         medidores1.add(new MedidorAnalogico("COD1","Portete",3.00, plan1 ,lecturas1, fechaini,fechafin,5.00));
         
@@ -125,6 +127,14 @@ public class DatosCreadosInternamente {
         //op.registrarMedicion(codp1);
         usuarios.add(new usuarioAdministrador(planes, usuarios, medidores, "admin", "superadmin"));
 
+    }
+
+    public ArrayList<Lectura> getLecturas() {
+        return lecturas;
+    }
+
+    public void setLecturas(ArrayList<Lectura> lecturas) {
+        this.lecturas = lecturas;
     }
 
     public ArrayList<Plan> getPlanes() {

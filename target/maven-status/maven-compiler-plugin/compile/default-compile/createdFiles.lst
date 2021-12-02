@@ -4,12 +4,13 @@ P_info\HorasPico.class
 Medidores\MedidorAnalogico.class
 Usuarios\usuarioOperario.class
 Usuarios\usuarioAdministrador.class
+P_info\DatosCreadosInternamente.class
 P_info\Interfaz.class
 P_info\Plan.class
+P_info\Correo.class
 Usuarios\usuarioAbonado.class
 Medidores\MedidorInteligente.class
 P_info\Factura.class
 P_info\Lectura.class
 P_info\Main.class
-P_info\datoscreadorinternamente.class
 Usuarios\Usuario.class

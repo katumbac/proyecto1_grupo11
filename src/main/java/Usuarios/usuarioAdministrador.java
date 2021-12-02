@@ -56,8 +56,10 @@ public class usuarioAdministrador extends Usuario {
                    System.out.println("Plan ya existente");
                 }
                 else {
+                    
                     Plan p1 = new Plan(nombre,costoKwh,provincias,cargoBase, horasPico);
                     planes.add(p1);
+                    System.out.println("Plan registrado correctamente");
                 }
             }
         }
@@ -87,11 +89,13 @@ public class usuarioAdministrador extends Usuario {
                     }
                     
                     String tipoPlan = sc.nextLine();
-                    int i_plan;
+                    int i_plan =0;
                     for(Plan p: planes){
                         if(p.getNombre().equals(tipoPlan))
-                            i_plan = planes.indexOf(p);
+                            i_plan += planes.indexOf(p);
+                            
                     }
+                    
                     Plan planElegido = planes.get(i_plan);
                     
                     String alfa="abcdefghijklmnopqrstuvwxyz";
@@ -115,7 +119,7 @@ public class usuarioAdministrador extends Usuario {
                     switch(tipoMedidor){
                         case "analógico":
                             ArrayList<Lectura> lecturas = new ArrayList<>();
-                            medidores.add(new MedidorAnalogico(codigo,direccion,5.45,planElegido,lecturas,)
+                            //medidores.add(new MedidorAnalogico(codigo,direccion,5.45,planElegido,lecturas,)
 
                     }
 
@@ -157,6 +161,7 @@ public class usuarioAdministrador extends Usuario {
     public void realizarFacturacion() {
         int total = 0;
         for(Medidor m: medidores){
+            System.out.print(m.getCodigo());
             total += m.calcularValorPagar(LocalDate.now());
         System.out.print("******FACTURA*****");
         System.out.print("Fecha de emision: ");
