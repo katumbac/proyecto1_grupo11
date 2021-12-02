@@ -64,8 +64,8 @@ public class DatosCreadosInternamente {
         LocalTime tfin1= LocalTime.parse("08:00:00");
         LocalTime tini2= LocalTime.parse("08:00:00");
         LocalTime tfin2= LocalTime.parse("10:00:00");
-        horapico1.addAll(Arrays.asList(new HorasPico(tini1, tfin1) ,new HorasPico(tini2,tfin2)));
-        Plan plan2 = new Plan("Plan2", 5.00, ProvinciasSector1, 6.00, horapico1);
+        horapico2.addAll(Arrays.asList(new HorasPico(tini1, tfin1) ,new HorasPico(tini2,tfin2)));
+        Plan plan2 = new Plan("Plan2", 5.00, ProvinciasSector2, 6.00, horapico2);
         planes.add(plan2);
         
 

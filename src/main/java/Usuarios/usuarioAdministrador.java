@@ -46,7 +46,28 @@ public class usuarioAdministrador extends Usuario {
     
     
     public void registrarPlan(String nombre, double costoKwh, ArrayList<Provincias> provincias, double cargoBase, ArrayList<HorasPico> horasPico) {
+        Plan p= new Plan(nombre,costoKwh,provincias,cargoBase,horasPico);
+        boolean ingresar=true;
+        if(planes.isEmpty()) {
+            ingresar=true;
+        } else {
+            for(Plan i:planes) {
+                String n=i.getNombre();
+                if(n.equals(nombre)==true) {
+                    ingresar=false;
+                } else {
+                    ingresar=true;
+                }
+            }
+        }
+        if(ingresar==true) {
+            planes.add(p);
+            System.out.println(planes);
+        } else {
+            System.out.println("Se debe ingresar un Plan con otro nombre.");
+        }
         
+        /**
         if(planes.isEmpty()){
             planes.add(new Plan(nombre,costoKwh,provincias,cargoBase, horasPico));
         }
@@ -62,7 +83,7 @@ public class usuarioAdministrador extends Usuario {
                     System.out.println("Plan registrado correctamente");
                 }
             }
-        }
+        }**/
     }
     
     public void registrarMedidor(String cedula) {
