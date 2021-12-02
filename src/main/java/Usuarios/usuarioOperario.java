@@ -50,8 +50,8 @@ public class usuarioOperario extends Usuario {
                 System.out.println("Lectura Anterior : "+lectant);
                 System.out.println("Lectura Actual: ");
                 double lecactu = sc.nextDouble();
-                double klconsumidos = lecactu - Double.parseDouble(lectant);
-                System.out.print("Kilovatios consumidos: "+klconsumidos);
+                double kwhconsumidos = lecactu - Double.parseDouble(lectant);
+                System.out.print("Kilovatios consumidos: "+kwhconsumidos);
                 
             }
             else if  (x instanceof MedidorInteligente && x.getCodigo().equals(cod)){
@@ -61,8 +61,8 @@ public class usuarioOperario extends Usuario {
                 System.out.print("Lectura Anterior: ");
                 System.out.println("Lectura Actual: ");
                 double lecactu = sc.nextDouble();
-                double klconsumidos = lecactu - Double.parseDouble(lectant);
-                System.out.print("Kilovatios consumidos: "+klconsumidos);
+                double kwhconsumidos = lecactu - Double.parseDouble(lectant);
+                System.out.print("Kilovatios consumidos: "+kwhconsumidos);
                 
             }
         }     
