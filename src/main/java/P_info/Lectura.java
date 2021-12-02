@@ -37,7 +37,7 @@ public class Lectura {
 
     @Override
     public String toString() {
-        return "Lectura\n" + "Fecha: " + fecha +"\n"+  "Valor actual:" + valorActual + "\n";
+        return "\nFecha: " + fecha +"\n"+  "Valor actual:" + valorActual;
     }
     
     

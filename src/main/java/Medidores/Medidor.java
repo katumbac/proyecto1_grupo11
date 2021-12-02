@@ -6,6 +6,7 @@ package Medidores;
 
 import P_info.Lectura;
 import P_info.Plan;
+import P_info.Provincias;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -15,7 +16,6 @@ import java.util.ArrayList;
  */
 public abstract class Medidor {
     private String codigo;
-    private String provincia;
     private String direccion;
     private double costoKwh;
     private Plan planContratado;
@@ -23,9 +23,8 @@ public abstract class Medidor {
     private LocalDate ultimaFechaCobrada;
     private LocalDate consumoUltimaFactura;
 
-    public Medidor(String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura) {
+    public Medidor(String codigo, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura) {
         this.codigo = codigo;
-        this.provincia = provincia;
         this.direccion = direccion;
         this.costoKwh = costoKwh;
         this.planContratado = planContratado;
@@ -47,13 +46,39 @@ public abstract class Medidor {
         this.codigo = codigo;
     }
 
-    public String getProvincia() {
-        return provincia;
+    
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
+
+    public ArrayList<Lectura> getLecturas() {
+        return lecturas;
+    }
+
+    public void setLecturas(ArrayList<Lectura> lecturas) {
+        this.lecturas = lecturas;
+    }
+
+    public LocalDate getUltimaFechaCobrada() {
+        return ultimaFechaCobrada;
+    }
+
+    public void setUltimaFechaCobrada(LocalDate ultimaFechaCobrada) {
+        this.ultimaFechaCobrada = ultimaFechaCobrada;
+    }
+
+    public LocalDate getConsumoUltimaFactura() {
+        return consumoUltimaFactura;
+    }
+
+    public void setConsumoUltimaFactura(LocalDate consumoUltimaFactura) {
+        this.consumoUltimaFactura = consumoUltimaFactura;
+    }
+
 
     public double getCostoKwh() {
         return costoKwh;
@@ -73,7 +98,7 @@ public abstract class Medidor {
 
     @Override
     public String toString() {
-        return "Código: " + codigo + "\n"+ "Provincias: " + provincia + "\n"+ "Direccion: " + direccion + "\n"+ "Costo Kwh: " + costoKwh + "\n"+ "Plan contratado: " + planContratado + "\n"+ "Lecturas:" + lecturas + "\n"+ "Última fecha cobrada: " + ultimaFechaCobrada + "\n"+ "Consumo última factura: " + consumoUltimaFactura+"\n";
+        return "Código: " + codigo + "\n"+ "Provincias: " + planContratado.getProvincias() + "\n"+ "Direccion: " + direccion + "\n"+ "Costo Kwh: " + costoKwh + "\n"+ "Plan contratado: " + planContratado.getNombre() + "\n"+ "Lecturas:" + lecturas + "\n"+ "Última fecha cobrada: " + ultimaFechaCobrada + "\n"+ "Consumo última factura: " + consumoUltimaFactura+"\n";
     }
     
     

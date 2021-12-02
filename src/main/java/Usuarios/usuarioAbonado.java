@@ -134,5 +134,8 @@ public class usuarioAbonado extends Usuario {
         System.out.print("Hora              Promedio Consumo");
 
     }
+    public String toString(){
+        return "Usuario Abonado:\n" + super.toString() + "Cédula: "+cedula+"\n"+"Correo: "+ this.correoElectronico + "\n"+"Medidores: "+ this.medidores+"\n";
+    }
 
 }

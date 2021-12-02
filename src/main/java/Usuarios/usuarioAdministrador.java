@@ -6,9 +6,12 @@ package Usuarios;
 import Medidores.Medidor;
 import Medidores.MedidorInteligente;
 import P_info.Correo;
+import P_info.HorasPico;
+import P_info.Lectura;
 import Usuarios.usuarioAbonado;
 import Usuarios.Usuario;
 import P_info.Plan;
+import P_info.Provincias;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -42,7 +45,7 @@ public class usuarioAdministrador extends Usuario {
     
     
     
-    public void registrarPlan(String nombre, double costoKwh, ArrayList provincias, double cargoBase, ArrayList horasPico) {
+    public void registrarPlan(String nombre, double costoKwh, ArrayList<Provincias> provincias, double cargoBase, ArrayList<HorasPico> horasPico) {
         
         if(planes.isEmpty()){
             planes.add(new Plan(nombre,costoKwh,provincias,cargoBase, horasPico));
@@ -68,23 +71,57 @@ public class usuarioAdministrador extends Usuario {
             if (Us instanceof usuarioAbonado && Us != null){
                 usuarioAbonado Ua = (usuarioAbonado) Us;
                 if (Ua.getCedula().equals(cedula)){
-                    System.out.print("Ingrese la dirección donde se instalará el medidor: ");
+                    System.out.println("Ingrese la dirección donde se instalará el medidor: ");
                     String direccion = sc.nextLine();
                     
-                    System.out.print("Tipo de medidor: ");
+                    System.out.println("Tipo de medidor: ");
                     String tipoMedidor = sc.nextLine();
                     
-                    System.out.print("Tipo de plan:");
-                    int n = 0;
+                    System.out.println("Tipo de plan:");
+                    System.out.println("Planes disponibles");
+                    
+                    int n = 1;
                     for(Plan p: planes){
+                        System.out.println("Plan #"+n+"\n"+p);
                         n++;
-                        System.out.println(n+".- "+p.getNombre());
                     }
-                    int tipoPlan = sc.nextInt();
-                    sc.nextLine();
+                    
+                    String tipoPlan = sc.nextLine();
+                    int i_plan;
+                    for(Plan p: planes){
+                        if(p.getNombre().equals(tipoPlan))
+                            i_plan = planes.indexOf(p);
                     }
+                    Plan planElegido = planes.get(i_plan);
+                    
+                    String alfa="abcdefghijklmnopqrstuvwxyz";
+                    String codigo="";
+
+                    for(int i=0;i<6;i++){
+                      Double a = Math.random()*8;
+                      int ind=a.intValue();
+                      Double tipo=Math.random()*3;
+                      int t=tipo.intValue();
+                      switch(t) {
+                        case 1: codigo+=alfa.charAt(ind);
+                        break;
+                        case 2: codigo+=ind;
+                        break;
+                        default: codigo+=alfa.toUpperCase().charAt(ind);
+                        break;
+                        }
+                    }
+                    
+                    switch(tipoMedidor){
+                        case "analógico":
+                            ArrayList<Lectura> lecturas = new ArrayList<>();
+                            medidores.add(new MedidorAnalogico(codigo,direccion,5.45,planElegido,lecturas,)
+
+                    }
+
+                }
                 else{
-                    System.out.print("Ingrese su correo electrónico: ");
+                    System.out.println("Ingrese su correo electrónico: ");
                     String correo = sc.nextLine();
                     
                     String alfa="abcdefghijklmnopqrstuvwxyz";
@@ -150,4 +187,7 @@ Total a Pagar (según la formula de arriba)*/
         
         
     } 
+    public String toString(){
+        return "Usuario Administrador:\n" + super.toString();
+    }
 }

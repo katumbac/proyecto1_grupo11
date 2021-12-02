@@ -5,6 +5,9 @@
 package P_info;
 
 import Usuarios.Usuario;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,26 +17,16 @@ import java.util.Scanner;
 public class Main {
    
     public static void main(String[] args){
-        /**Scanner sc = new Scanner(System.in);
-
-        System.out.print("Ingrese nombre de usuario: ");
-        String nUsuario = sc.nextLine();
-        sc.nextLine();
+        Scanner sc = new Scanner(System.in);
         
-        * 
-        System.out.print("Ingrese contraseña: ");
-        String contrasenia = sc.nextLine();
-        sc.nextLine();
-
-                
-        sc.close();*/
-        
-        //datoscreadorinternamente datos = new datoscreadorinternamente();
-        /*Interfaz uit = new Interfaz();
+        DatosCreadosInternamente datos = new DatosCreadosInternamente();
+        //System.out.println(datos.getMedidores());
+        //System.out.println(datos.getUsuarios());
+        /*
+        Interfaz uit = new Interfaz();
         uit.menuPrincipal();*/
+        System.out.println(datos.getPlanes());
         
-        Correo.enviarCorreo("lnburgos@espol.edu.ec", "Prueba Correo", "hola mundo");
 
     }
-    
 }

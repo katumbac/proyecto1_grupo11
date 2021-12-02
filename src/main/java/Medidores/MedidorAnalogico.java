@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class MedidorAnalogico extends Medidor {
     private double KilovatiosConsumidos;
 
-    public MedidorAnalogico(double KilovatiosConsumidos, String codigo, String provincia, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura) {
-        super(codigo, provincia, direccion, costoKwh, planContratado, lecturas, ultimaFechaCobrada, consumoUltimaFactura);
+    public MedidorAnalogico(String codigo, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura,double KilovatiosConsumidos) {
+        super(codigo, direccion, costoKwh, planContratado, lecturas, ultimaFechaCobrada, consumoUltimaFactura);
         this.KilovatiosConsumidos = KilovatiosConsumidos;
     }
 
@@ -30,7 +30,15 @@ public class MedidorAnalogico extends Medidor {
 
     @Override
     public String toString() {
-        return "Medidor Analógico\n" + super.toString() + "Kilovatios consumidos: " + KilovatiosConsumidos;
+        return "Medidor Analógico\n" + super.toString() + "Kilovatios consumidos: " + KilovatiosConsumidos+"\n";
+    }
+
+    public double getKilovatiosConsumidos() {
+        return KilovatiosConsumidos;
+    }
+
+    public void setKilovatiosConsumidos(double KilovatiosConsumidos) {
+        this.KilovatiosConsumidos = KilovatiosConsumidos;
     }
     
     

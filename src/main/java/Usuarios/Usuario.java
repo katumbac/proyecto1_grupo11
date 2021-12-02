@@ -37,7 +37,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario:\n" + "nombre:" + nombre + "\n" +  "contrasenia:" + contrasenia;
+        return "nombre: " + nombre + "\n" +  "contrasenia: " + contrasenia+"\n";
     }
 
 }

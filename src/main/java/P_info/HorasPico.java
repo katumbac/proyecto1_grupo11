@@ -36,7 +36,9 @@ public class HorasPico {
         this.horaFin = horaFin;
     }
     
-    
-    
+    @Override
+    public String toString(){
+        return horaInicio+" - "+horaFin;
+    }
     
 }

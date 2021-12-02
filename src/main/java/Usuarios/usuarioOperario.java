@@ -5,7 +5,10 @@
 package Usuarios;
 
 import Medidores.Medidor;
+import Medidores.MedidorAnalogico;
+import Medidores.MedidorInteligente;
 import Usuarios.Usuario;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,11 +27,24 @@ public class usuarioOperario extends Usuario {
     
     public void registrarMedicion(String codigo){
         
+        Scanner sc = new Scanner(System.in);
         for (Medidor m: medidores){
             if(m.getCodigo().equals(codigo)){
                 System.out.println(m);
+                if (!(m instanceof MedidorInteligente)){
+                    MedidorAnalogico ma = (MedidorAnalogico) m;
+                    System.out.print("Ingrese la lectura actual: ");
+                    double l_Actual = sc.nextDouble();
+                    ma.setKilovatiosConsumidos(l_Actual);
+                    LocalDate fechaToma = LocalDate.now();
+                    
+        }
+        
             }
         }
+        
+        
+        
         /**if(codigo instanceof medidores){
          System.out.print("Medidor analogico a nombre de ");
          System.out.print("Última lectura realizada ");
@@ -41,5 +57,8 @@ public class usuarioOperario extends Usuario {
         
     }
     
-   
+    
+   public String toString(){
+       return "Usuario Operario:\n" + super.toString();
+   }
 }
