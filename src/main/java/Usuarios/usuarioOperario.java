@@ -37,21 +37,20 @@ public class usuarioOperario extends Usuario {
         medidores = datos.getMedidores();
         lecturas = datos.getLecturas();    
         for(Medidor x: medidores){
-            System.out.println();
-            if(x instanceof MedidorAnalogico && x.getCodigo().equals(cod)){
-                System.out.println(x.getLecturas());//[Fecha: 2023-03-04 Valor actual:5.0]
+                String fecha= "";
+                String lectant="";
                 for (Lectura s: x.getLecturas()){
-                    ArrayList<Lectura> a = new ArrayList<>();
-                    
-                    System.out.println(s);
+                    ArrayList<Lectura> a = new ArrayList<>();                   
+                    fecha+= s.getFecha();
+                    lectant+=s.getValorActual();
                 }
-                
+            if(x instanceof MedidorAnalogico && x.getCodigo().equals(cod)){
                 System.out.println("Medidor analogico a nombre de : " );
-                System.out.println("Última lectura realizada: " );
-                System.out.println("Lectura Anterior ");
+                System.out.println("Última lectura realizada: " +fecha);
+                System.out.println("Lectura Anterior : "+lectant);
                 System.out.println("Lectura Actual: ");
                 double lecactu = sc.nextDouble();
-                double klconsumidos = lecactu ;//- x.getLecturaAnt()
+                double klconsumidos = lecactu - Double.parseDouble(lectant);
                 System.out.print("Kilovatios consumidos: "+klconsumidos);
                 
             }
@@ -60,14 +59,13 @@ public class usuarioOperario extends Usuario {
                 System.out.print("Medidor Inteligente a nombre de : " );
                 System.out.print("Última lectura realizada: " );
                 System.out.print("Lectura Anterior: ");
-                System.out.print("Lectura Actual");
-                String lecactu = sc.nextLine();
+                System.out.println("Lectura Actual: ");
+                double lecactu = sc.nextDouble();
+                double klconsumidos = lecactu - Double.parseDouble(lectant);
+                System.out.print("Kilovatios consumidos: "+klconsumidos);
                 
             }
-     
-        }
-        
-       
+        }     
     }   
 
    @Override

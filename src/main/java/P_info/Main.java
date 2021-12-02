@@ -25,7 +25,7 @@ public class Main {
         //System.out.println(datos.getUsuarios());
        
        Interfaz uit = new Interfaz();
-        uit.menuPrincipal();
+       uit.menuPrincipal();
         //System.out.println(datos.getPlanes());
 
 
