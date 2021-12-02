@@ -5,6 +5,7 @@
 package Usuarios;
 import Medidores.Medidor;
 import Medidores.MedidorInteligente;
+import Medidores.MedidorAnalogico;
 import P_info.Correo;
 import P_info.HorasPico;
 import P_info.Lectura;
@@ -12,6 +13,7 @@ import Usuarios.usuarioAbonado;
 import Usuarios.Usuario;
 import P_info.Plan;
 import P_info.Provincias;
+import P_info.Factura;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -46,37 +48,53 @@ public class usuarioAdministrador extends Usuario {
     
     
     public void registrarPlan(String nombre, double costoKwh, ArrayList<Provincias> provincias, double cargoBase, ArrayList<HorasPico> horasPico) {
-        
-        if(planes.isEmpty()){
-            planes.add(new Plan(nombre,costoKwh,provincias,cargoBase, horasPico));
-        }
-        else{
-            for(Plan p: planes){
-                if (p.getNombre().equals(nombre)){
-                   System.out.println("Plan ya existente");
-                }
-                else {
-                    
-                    Plan p1 = new Plan(nombre,costoKwh,provincias,cargoBase, horasPico);
-                    planes.add(p1);
-                    System.out.println("Plan registrado correctamente");
+        Plan p= new Plan(nombre,costoKwh,provincias,cargoBase,horasPico);
+        boolean ingresar=true;
+        if(planes.isEmpty()) {
+            ingresar=true;
+        } else {
+            for(Plan i:planes) {//El java no permite agregar algo al mismo listado que estas iterando.
+                String n=i.getNombre();
+                if(n.equals(nombre)==true) {
+                    ingresar=false;
+                } else {
+                    ingresar=true;
                 }
             }
+        }
+        if(ingresar==true) {
+            planes.add(p);
+            System.out.println("Plan registrado correctamente.");
+        } else {
+            System.out.println("Se debe ingresar un Plan con otro nombre.");
         }
     }
     
     public void registrarMedidor(String cedula) {
         Scanner sc = new Scanner(System.in);
+        Medidor m;
+        String mensaje="";
+        String correo="";
+        boolean nuevo=true;
+        String alfa="abcdefghijklmnopqrstuvwxyz";
         
+        for (Usuario u:usuarios){
+            if (u instanceof usuarioAbonado) {
+                usuarioAbonado ab=(usuarioAbonado)u;
+                String id=ab.getCedula();
+                if (id.equals(cedula)){
+                    nuevo=false;
+                    correo=ab.getCorreoElectronico();
+                }
+            }
+        }
         //Método incompleto, todavía falta.
-        for(Usuario Us: usuarios){
-            if (Us instanceof usuarioAbonado && Us != null){
-                usuarioAbonado Ua = (usuarioAbonado) Us;
-                if (Ua.getCedula().equals(cedula)){
+        if (nuevo==false){
+                    
                     System.out.println("Ingrese la dirección donde se instalará el medidor: ");
                     String direccion = sc.nextLine();
                     
-                    System.out.println("Tipo de medidor: ");
+                    System.out.println("Tipo de medidor:\n1. Analógico\n2. Inteligente\nIngresar su opción: ");
                     String tipoMedidor = sc.nextLine();
                     
                     System.out.println("Tipo de plan:");
@@ -98,7 +116,6 @@ public class usuarioAdministrador extends Usuario {
                     
                     Plan planElegido = planes.get(i_plan);
                     
-                    String alfa="abcdefghijklmnopqrstuvwxyz";
                     String codigo="";
 
                     for(int i=0;i<6;i++){
@@ -115,20 +132,33 @@ public class usuarioAdministrador extends Usuario {
                         break;
                         }
                     }
-                    
+                    ArrayList<Lectura> lecturas = new ArrayList<>();
+                    LocalDate ultimaFechaCobrada = LocalDate.now();
+                    LocalDate consumoUltimaFactura = LocalDate.now();
                     switch(tipoMedidor){
-                        case "analógico":
-                            ArrayList<Lectura> lecturas = new ArrayList<>();
-                            //medidores.add(new MedidorAnalogico(codigo,direccion,5.45,planElegido,lecturas,)
-
+                        case "1":
+                            m=new MedidorAnalogico(codigo,direccion,planElegido.getCostoKwh(),planElegido,lecturas,ultimaFechaCobrada,consumoUltimaFactura,0);
+                            medidores.add(m);
+                            mensaje+=m.toString();
+                            break;
+                        case "2":
+                            System.out.print("Ingrese la telemetria: ");
+                            double tel=sc.nextDouble();
+                            sc.nextLine();
+                            m=new MedidorInteligente(tel,0,0,codigo,direccion,planElegido.getCostoKwh(),planElegido,lecturas,ultimaFechaCobrada,consumoUltimaFactura);
+                            medidores.add(m);
+                            mensaje+=m.toString();
+                            break;
                     }
-
+                    Correo.enviarCorreo(correo,"Medidor Registrado",mensaje);
                 }
                 else{
-                    System.out.println("Ingrese su correo electrónico: ");
-                    String correo = sc.nextLine();
+                    System.out.println("Ingrese su nombre: ");
+                    String nombre = sc.nextLine();
                     
-                    String alfa="abcdefghijklmnopqrstuvwxyz";
+                    System.out.println("Ingrese su correo electrónico: ");
+                    correo = sc.nextLine();
+                    
                     String contrasenia="";
                     
                     for(int i=0;i<8;i++){
@@ -146,12 +176,14 @@ public class usuarioAdministrador extends Usuario {
                         }
                     }
                     //(String destinatario, String asunto, String contenido)
-                    Correo.enviarCorreo(correo,"Registro en el sistema", "Usuario: "+ cedula +"\n Contraseña: "+contrasenia);
-                    usuarios.add(new Usuario(cedula,contrasenia));
+                    ArrayList<Medidor> medidores = new ArrayList<>();
+                    ArrayList<Factura> facturas = new ArrayList<>();
+                    
+                    usuarios.add(new usuarioAbonado(cedula,cedula,correo,medidores,facturas,nombre,contrasenia));
+                    mensaje+="Usuario: "+ cedula +"\nContraseña: "+contrasenia;
+                    Correo.enviarCorreo(correo,"Registro en el sistema",mensaje);
                     
                 }
-            }
-        }
     }
     
     public void simularMediciones (LocalDate fechaInicio, LocalDate fechaFin) {

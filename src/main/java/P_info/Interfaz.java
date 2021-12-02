@@ -160,12 +160,12 @@ public class Interfaz {
 
                                     ArrayList<HorasPico> horasPico = new ArrayList<>();
                                     
-                                    /**System.out.println("Ingrese Horas Pico (hh:mm) separadas por coma: ");
+                                    System.out.println("Ingrese Horas Pico (hh:mm) separadas por coma: ");
                                     String horaspico = sc.nextLine();
                                     String[] horas = horaspico.split(",");
                                     for(int i = 1; i<horas.length;i+=2){
                                         horasPico.add(new HorasPico(LocalTime.parse(horas[i-1]),LocalTime.parse(horas[i]))); 
-                                    }*/
+                                    }
 
                                     ua.registrarPlan(plan, kilohora, provincias, cargobase, horasPico);
                                     break;
@@ -174,23 +174,8 @@ public class Interfaz {
                                     System.out.println("2. Registrar Medidor");
                                     System.out.println("Ingrese número de cédula del abonado: ");
                                     String numced = sc.nextLine();
-                                    sc.nextLine();
-                                    //Si no existe un abonado con el número de cédula ingresado 
-                                    // se procede a pedir el nombre de este y su correo 
-                                    //y a registrarlo en el sistema (el nombre de usuario será la cédula del abonado y la contraseña es un valor al azar que contengan 8 caracteres al menos una letra mayúscula y un dígito). 
-
-                                    System.out.println("Ingrese la dirección donde se instalará el medidor : ");
-                                    //String numced = sc.nextLine();
-                                    sc.nextLine();
-
-                                    System.out.println("Ingrese tipo de medidor : ");
-                                    //String numced = sc.nextLine();
-                                    sc.nextLine();
-
-                                    System.out.println("Ingrese tipo de plan que se aplica : ");
-                                    //String numced = sc.nextLine();
-                                    sc.nextLine();
-
+                                    ua.registrarMedidor(numced);
+                                 
                                     //Si los datos son válidos se procede a registrar el medidor el cual tendrá un código único. Al final se debe enviar un correo al abonado con los datos del medidor y en caso se registrará un nuevo abonado se debe enviar el usuario y contraseña de este.
                                     break;
                                 case "3":

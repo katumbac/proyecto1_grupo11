@@ -20,14 +20,14 @@ public class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         
-        //DatosCreadosInternamente datos = new DatosCreadosInternamente();
-        //System.out.println(datos.getMedidores());
+        DatosCreadosInternamente datos = new DatosCreadosInternamente();
+        System.out.println(datos.getMedidores());
         //System.out.println(datos.getUsuarios());
        
        Interfaz uit = new Interfaz();
        uit.menuPrincipal();
         //System.out.println(datos.getPlanes());
-
+        System.out.println(datos.getMedidores());
 
     }
 }
