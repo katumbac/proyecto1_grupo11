@@ -26,7 +26,7 @@ public class Main {
         Interfaz uit = new Interfaz();
         uit.menuPrincipal();*/
         System.out.println(datos.getPlanes());
-        
+
 
     }
 }
