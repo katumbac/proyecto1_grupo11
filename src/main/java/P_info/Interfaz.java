@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import P_info.DatosCreadosInternamente;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -188,10 +189,10 @@ public class Interfaz {
                                     //Opción el sistema pide el rango de fechas 
                                     System.out.println("Fecha Inicio: ");
                                     String fechaInicio= sc.nextLine();
-                                    LocalDate fechaI= LocalDate.parse(fechaInicio);
+                                    LocalDateTime fechaI= LocalDateTime.parse(fechaInicio+"T00:00:00");
                                     System.out.println("Fecha Fin: ");
                                     String fechaFin = sc.nextLine();
-                                    LocalDate fechaF= LocalDate.parse(fechaFin);
+                                    LocalDateTime fechaF= LocalDateTime.parse(fechaFin+"T00:10:00");
                                     ua.simularMediciones (fechaI,fechaF);
                                     break;
                                 case "4":

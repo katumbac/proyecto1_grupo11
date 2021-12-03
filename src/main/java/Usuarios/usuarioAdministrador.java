@@ -15,6 +15,7 @@ import P_info.Plan;
 import P_info.Provincias;
 import P_info.Factura;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -196,9 +197,8 @@ public class usuarioAdministrador extends Usuario {
                 }
     }
     
-    public void simularMediciones (LocalDate fechaInicio, LocalDate fechaFin) {
-        Double azar=Math.random()*10;
-        int n=azar.intValue();
+    public void simularMediciones (LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+        
         if(fechaInicio.isBefore(fechaFin)){
             //date = date.plusDays(1);
             int medAna = 0;
@@ -227,32 +227,20 @@ public class usuarioAdministrador extends Usuario {
             ArrayList<Integer> lectIInt = new ArrayList<>();
             int lectInt = 0;
             for(Medidor med: medidores ){ 
-                if(med instanceof MedidorAnalogico){        
-                    System.out.println("Lecturas para medidor con código "+med.getCodigo()+" con valor actual "+ lectant);
-                    lectAna+= lectant+n;
-                    lectAInt.add(lectAna);
-                    for (LocalDate date = fechaInicio; date.isBefore(fechaFin); date = date.plusDays(1)) {
-                        System.out.println(date +" "+(lectant+n));
-                    }
-
-                                
-                }
-                else if  (med instanceof MedidorInteligente ){
-                    lectInt+= lectant+n;
+                if  (med instanceof MedidorInteligente ){
+                    lectInt+= lectant;
                     lectIInt.add(lectInt);
                     
                     System.out.println("Lecturas para medidor con código "+med.getCodigo()+" con valor actual "+ lectant);
-                    for (LocalDate date = fechaInicio; date.isBefore(fechaFin); date = date.plusDays(1)) {
-                    
-                        System.out.println(date +" "+lectant);
+                    for (LocalDateTime date = fechaInicio; date.isBefore(fechaFin);date = date.plusMinutes(10)) {
+                        Double aleatorio=Math.random()*10;
+                        int com=aleatorio.intValue();
+                        System.out.println(med.getCodigo()+" "+date +" "+com);
                     }
                 }
             
             }
-            System.out.println("Existen "+medAna+ "Medidores Analogico");
-            for(Lectura ana: mediAna){
-                System.out.print("");
-            }
+            
             System.out.println("Existen "+medInt+ "Medidores Inteligente");
             for(Lectura intl: mediInt){
                 System.out.print("");
