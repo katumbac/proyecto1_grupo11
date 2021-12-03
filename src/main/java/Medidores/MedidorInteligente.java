@@ -39,8 +39,7 @@ public class MedidorInteligente extends Medidor {
     public double getTelemetria() {
         return telemetria;
     }
-
-
+    
     public double getKilovatiosConsumidosNoPico() {
         return KilovatiosConsumidosNoPico;
     }

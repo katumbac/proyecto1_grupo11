@@ -232,7 +232,7 @@ public class usuarioAdministrador extends Usuario {
                     lectIInt.add(lectInt);
                     
                     System.out.println("Lecturas para medidor con código "+med.getCodigo()+" con valor actual "+ lectant);
-                    for (LocalDateTime date = fechaInicio; date.isBefore(fechaFin);date = date.plusMinutes(10)) {
+                    for (LocalDateTime date = fechaInicio; date.isBefore(fechaFin);date = date.plusMinutes(30)) {
                         Double aleatorio=Math.random()*10;
                         int com=aleatorio.intValue();
                         System.out.println(med.getCodigo()+" "+date +" "+com);
