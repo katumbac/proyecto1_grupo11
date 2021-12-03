@@ -220,9 +220,9 @@ public class Interfaz {
                                     System.out.println("1. Registrar Medición");
                                     System.out.println("Ingrese codigo del medidor: ");
                                     String cod = sc.nextLine();
-                                    uo.registrarMedicion(cod);
+                                    uo.registrarMedicion(cod,usuarios);
                                     //Al ingresar esta opción se debe generar las facturas de todos los medidores que se encuentran registrados en el sistema. El total a pagar depende del plan contratado y el número de kilovatios consumidos. 
-
+                                    System.out.println(usuarios);
                                     break;
                                 case "2":
                                     System.out.println("Adios");

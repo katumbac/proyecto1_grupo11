@@ -56,7 +56,7 @@ public abstract class Medidor {
     }
 
     public ArrayList<Lectura> getLecturas() {
-        return lecturas;
+        return this.lecturas;
     }
 
     public void setLecturas(ArrayList<Lectura> lecturas) {

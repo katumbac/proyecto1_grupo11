@@ -31,9 +31,7 @@ public class MedidorInteligente extends Medidor {
         this.KilovatiosConsumidosNoPico = KilovatiosConsumidosNoPico;
         this.KilovatiosConsumidosPico = KilovatiosConsumidosPico;
     }
-
     
-
     public ArrayList<HorasPico> getHoraspico() {
         return horaspico;
     }
@@ -62,6 +60,4 @@ public class MedidorInteligente extends Medidor {
     public String toString() {
         return "Medidor Inteligente\n" + super.toString() + "Horas Pico: " + horaspico + "\n"+ "Telemetría: " + telemetria + "\n"+ "Kilovatios consumidos en horas no pico: " + KilovatiosConsumidosNoPico + "\n"+ "Kilovatios consumidos en horas pico: " + KilovatiosConsumidosPico+"\n";
     }
-    
-    
 }

@@ -36,7 +36,7 @@ public class DatosCreadosInternamente {
         lecturas = new ArrayList<Lectura>();
         
         //Dos Operarios
-        usuarioOperario operario1 =new usuarioOperario("op","1234");
+        usuarioOperario operario1 =new usuarioOperario("op1","1234");
         usuarioOperario operario2 =new usuarioOperario("operario2","4321");
         usuarios.add(operario1);
         usuarios.add(operario2);
@@ -90,7 +90,7 @@ public class DatosCreadosInternamente {
         
         
         //Analogico
-        usuarios.add(new usuarioAbonado("Abonado1", "0909123456", "ktumbaco2002@gmail.com", medidores1, facturas1, "operario1","1234"));
+        usuarios.add(new usuarioAbonado("0909123456", "0909123456", "luis.burgosanzules@gmail.com", medidores1, facturas1, "Abonado1","1234"));
         
 
         //analogico e inteligente
@@ -109,12 +109,9 @@ public class DatosCreadosInternamente {
         LocalDate fechaemi = LocalDate.of(2020,03,04);
         LocalDate fechaLecturaAct = LocalDate.now();
         LocalDate fechaLecturaAnt = LocalDate.of(2020,02,04);
-        //Factura(int numeroFactura, usuarioAbonado nombreAbonado, Medidor codigoMedidor, Plan nombrePlan, LocalDate fechaEmision, LocalDate fechaLecturaAnt, LocalDate fechaLecturaAct, int diasFacturados, Lectura lecturaAnt, double consumo, double cargoPlan, double totalPagar)
         ArrayList<Factura> facturas2 = new ArrayList<>();
         Lectura lectAnt = new Lectura(fechaLecturaAnt, 5);
-        //Factura fact = new Factura(001, "Abonado2", "COD1", plan1, fechaemi, fechaLecturaAnt, fechaLecturaAct,5,lectAnt, 5.00, 3.00, 1);
-        //facturas2.add(fact);
-        usuarios.add(new usuarioAbonado("Abonado2", "0909654321", "ktumbaco2002@gmail.com", medidores2, facturas2, "Abonado2","4321"));
+        usuarios.add(new usuarioAbonado("0909654321", "0909654321", "luis.burgosanzules@gmail.com", medidores2, facturas2, "Abonado2","4321"));
         
         medidores.addAll(medidores1);
         medidores.addAll(medidores2);
@@ -129,7 +126,7 @@ public class DatosCreadosInternamente {
     }
 
     public ArrayList<Lectura> getLecturas() {
-        return lecturas;
+        return this.lecturas;
     }
 
     public void setLecturas(ArrayList<Lectura> lecturas) {
@@ -137,15 +134,15 @@ public class DatosCreadosInternamente {
     }
 
     public ArrayList<Plan> getPlanes() {
-        return planes;
+        return this.planes;
     }
 
     public ArrayList<Medidor> getMedidores() {
-        return medidores;
+        return this.medidores;
     }
 
     public ArrayList<Usuario> getUsuarios() {
-        return usuarios;
+        return this.usuarios;
     }
     
 }
