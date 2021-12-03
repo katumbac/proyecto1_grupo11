@@ -47,7 +47,7 @@ public class usuarioOperario extends Usuario {
                             String fecha= "";
                             double lectant=0;
                             for (Lectura s: x.getLecturas()){
-                                ArrayList<Lectura> a = new ArrayList<>();
+                                fecha= "";
                                 fecha+= s.getFecha();
                                 lectant=s.getValorActual();
                             }
@@ -80,7 +80,7 @@ public class usuarioOperario extends Usuario {
                 }
             }
         }
-        if (val==medidores.size()) {
+        if (val>2) {
             System.out.println("Opción Inválida");
         }
             

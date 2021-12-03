@@ -109,11 +109,8 @@ public class DatosCreadosInternamente {
         LocalDate fechaemi = LocalDate.of(2020,03,04);
         LocalDate fechaLecturaAct = LocalDate.now();
         LocalDate fechaLecturaAnt = LocalDate.of(2020,02,04);
-        //Factura(int numeroFactura, usuarioAbonado nombreAbonado, Medidor codigoMedidor, Plan nombrePlan, LocalDate fechaEmision, LocalDate fechaLecturaAnt, LocalDate fechaLecturaAct, int diasFacturados, Lectura lecturaAnt, double consumo, double cargoPlan, double totalPagar)
         ArrayList<Factura> facturas2 = new ArrayList<>();
         Lectura lectAnt = new Lectura(fechaLecturaAnt, 5);
-        //Factura fact = new Factura(001, "Abonado2", "COD1", plan1, fechaemi, fechaLecturaAnt, fechaLecturaAct,5,lectAnt, 5.00, 3.00, 1);
-        //facturas2.add(fact);
         usuarios.add(new usuarioAbonado("0909654321", "0909654321", "luis.burgosanzules@gmail.com", medidores2, facturas2, "Abonado2","4321"));
         
         medidores.addAll(medidores1);
