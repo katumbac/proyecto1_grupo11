@@ -61,9 +61,9 @@ public class usuarioOperario extends Usuario {
                                 System.out.println("\nKilovatios consumidos: "+kwhconsumidos);
                                 ArrayList<Lectura> lecturas = new ArrayList<>();
                                 Lectura lect1 = new Lectura(LocalDate.now(),lecactu);
+                                lecturas.addAll(x.getLecturas());
                                 lecturas.add(lect1);
                                 x.setLecturas(lecturas);
-                                System.out.println(x);
                             }
                             else if  (x instanceof MedidorInteligente && x.getCodigo().equals(cod)){
                                 MedidorInteligente y = (MedidorInteligente) x;
@@ -74,7 +74,11 @@ public class usuarioOperario extends Usuario {
                                 lecactu = sc.nextDouble();
                                 double kwhconsumidos = lecactu - lectant;
                                 System.out.println("\nKilovatios consumidos: "+kwhconsumidos);
-                                x.getLecturas().add(new Lectura(LocalDate.now(),lecactu));
+                                ArrayList<Lectura> lecturas = new ArrayList<>();
+                                Lectura lect1 = new Lectura(LocalDate.now(),lecactu);
+                                lecturas.addAll(x.getLecturas());
+                                lecturas.add(lect1);
+                                x.setLecturas(lecturas);
                             } else {
                                 val++;
                             }

@@ -76,7 +76,8 @@ public class usuarioAbonado extends Usuario {
  
     
     public void consultarFactura() {
-        
+        Scanner sc = new Scanner(System.in);
+        int m=0;
         /** 
          Al ingresar esta opción aparece una lista
          * de las facturas generadas a nombre del abonado 
@@ -87,22 +88,26 @@ public class usuarioAbonado extends Usuario {
         
         for(Factura f: facturas){
             System.out.println("HO");
-            System.out.println("\t"+f.getNumeroFactura()+" "+ f.getFechaEmision()+" "+f.getCodigoMedidor());
+            System.out.println("\t"+f.getNumeroFactura()+"           "+ f.getFechaEmision()+"             "+f.getCodigoMedidor());
         }
-                
-        System.out.print("Ingrese código factura");
+        System.out.println("Ingrese código factura: ");
         int cod = sc.nextInt();
-        
+        sc.nextLine();
         //mostrar detalles de la factura
-        if (facturas.contains(cod)){
-            System.out.print(facturas.toString());
-        } else {
-            System.out.print("Codigo de factura no existente");
+        for (Factura f:facturas) {
+            if (f.getNumeroFactura()==cod) {
+                System.out.println(f.toString());
+                m=1;
+            }
+        }
+        
+        if (m==0) {
+            System.out.println("La factura no está ingresada.");
         }
     }
     
     public void consultarHistoricoFacturado() {
-        
+        int n=0;
         System.out.println("Medidores Asociados\n");
         System.out.println("Código Medidor         Tipo Medidor       Nombre Del Plan");
         for(Medidor m: medidores){
@@ -113,12 +118,21 @@ public class usuarioAbonado extends Usuario {
             }   
         }
         
+        
+        
         System.out.println("Ingrese el código del medidor a consultar");
         String cod = sc.nextLine().toUpperCase();
-        sc.nextLine();
-        System.out.println("Consumo de los últimos 3 medidas");
-        System.out.println("Número Factura       Nombre del Plan       Código Medidor");
         
+        System.out.println("Consumo de los últimos 3 medidas");
+        System.out.println("Número Factura       Kwh consumidos       Total a pagar");
+        for (Factura f:facturas) {
+            if (f.getCodigoMedidor().equals(cod)) {
+                if (n<3){
+                    System.out.println("       "+f.getNumeroFactura()+"                          "+f.getConsumo()+"                                             "+f.getTotalPagar());
+                }
+                n++;
+            }
+        }
     }
     
     public void consultarConsumoHora() {

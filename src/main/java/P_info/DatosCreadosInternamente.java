@@ -36,7 +36,7 @@ public class DatosCreadosInternamente {
         lecturas = new ArrayList<Lectura>();
         
         //Dos Operarios
-        usuarioOperario operario1 =new usuarioOperario("op1","1234");
+        usuarioOperario operario1 =new usuarioOperario("operario1","1234");
         usuarioOperario operario2 =new usuarioOperario("operario2","4321");
         usuarios.add(operario1);
         usuarios.add(operario2);
