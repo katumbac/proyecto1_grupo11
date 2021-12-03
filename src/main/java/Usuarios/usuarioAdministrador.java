@@ -110,7 +110,7 @@ public class usuarioAdministrador extends Usuario {
                         System.out.println("Plan #"+n+"\n"+p);
                         n++;
                     }
-                    
+                    System.out.println("Ingrese el nombre del plan a elegir:");
                     String tipoPlan = sc.nextLine();
                     int i_plan =0;
                     for(Plan p: planes){
