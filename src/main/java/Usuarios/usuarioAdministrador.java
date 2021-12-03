@@ -15,6 +15,7 @@ import P_info.Plan;
 import P_info.Provincias;
 import P_info.Factura;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -196,7 +197,67 @@ public class usuarioAdministrador extends Usuario {
     }
     
     public void simularMediciones (LocalDate fechaInicio, LocalDate fechaFin) {
-        
+        Double azar=Math.random()*10;
+        int n=azar.intValue();
+        if(fechaInicio.isBefore(fechaFin)){
+            //date = date.plusDays(1);
+            int medAna = 0;
+            int medInt = 0;
+            double lectant=0;
+            for(Medidor m: medidores ){
+                
+                if(m instanceof MedidorAnalogico){
+                    medAna++;
+                                
+                }
+                else if  (m instanceof MedidorInteligente ){
+                    medInt++;
+                }
+                
+                for (Lectura s: m.getLecturas()){
+                lectant=s.getValorActual();
+                }
+            }
+            
+            ArrayList<Lectura> mediAna = new ArrayList<>();
+            ArrayList<Integer> lectAInt = new ArrayList<>();
+            int lectAna = 0;
+            
+            ArrayList<Lectura> mediInt = new ArrayList<>();
+            ArrayList<Integer> lectIInt = new ArrayList<>();
+            int lectInt = 0;
+            for(Medidor med: medidores ){ 
+                if(med instanceof MedidorAnalogico){        
+                    System.out.println("Lecturas para medidor con código "+med.getCodigo()+" con valor actual "+ lectant);
+                    lectAna+= lectant+n;
+                    lectAInt.add(lectAna);
+                    for (LocalDate date = fechaInicio; date.isBefore(fechaFin); date = date.plusDays(1)) {
+                        System.out.println(date +" "+(lectant+n));
+                    }
+
+                                
+                }
+                else if  (med instanceof MedidorInteligente ){
+                    lectInt+= lectant+n;
+                    lectIInt.add(lectInt);
+                    
+                    System.out.println("Lecturas para medidor con código "+med.getCodigo()+" con valor actual "+ lectant);
+                    for (LocalDate date = fechaInicio; date.isBefore(fechaFin); date = date.plusDays(1)) {
+                    
+                        System.out.println(date +" "+lectant);
+                    }
+                }
+            
+            }
+            System.out.println("Existen "+medAna+ "Medidores Analogico");
+            for(Lectura ana: mediAna){
+                System.out.print("");
+            }
+            System.out.println("Existen "+medInt+ "Medidores Inteligente");
+            for(Lectura intl: mediInt){
+                System.out.print("");
+            }
+        }else{System.out.println("Rango de fecha erroneo");}
     }
     
     public void realizarFacturacion() {

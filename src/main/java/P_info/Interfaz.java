@@ -187,9 +187,12 @@ public class Interfaz {
                                     System.out.println("3. Simular Mediciones");
                                     //Opción el sistema pide el rango de fechas 
                                     System.out.println("Fecha Inicio: ");
-                                    //LocalTime finicio= sc.nextLocalTime();
+                                    String fechaInicio= sc.nextLine();
+                                    LocalDate fechaI= LocalDate.parse(fechaInicio);
                                     System.out.println("Fecha Fin: ");
-                                    //LocalTime ffin = sc.nextLocalTime();            
+                                    String fechaFin = sc.nextLine();
+                                    LocalDate fechaF= LocalDate.parse(fechaFin);
+                                    ua.simularMediciones (fechaI,fechaF);
                                     break;
                                 case "4":
                                     System.out.println("4. Realizar Facturación");
