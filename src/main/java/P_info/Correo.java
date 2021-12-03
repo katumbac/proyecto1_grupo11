@@ -40,11 +40,11 @@ public class Correo {
         transport.connect("smtp.gmail.com", emisor, clave);
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();
-        System.out.print("Mensaje enviado");
+        System.out.println("Mensaje enviado");
     }
     catch (MessagingException me) {
         me.printStackTrace();
-        System.out.print("Mensaje no enviado");
+        System.out.println("Mensaje no enviado");
     }
 }
 }

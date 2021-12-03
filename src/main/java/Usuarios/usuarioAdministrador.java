@@ -15,6 +15,7 @@ import P_info.Plan;
 import P_info.Provincias;
 import P_info.Factura;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -73,8 +74,10 @@ public class usuarioAdministrador extends Usuario {
     public void registrarMedidor(String cedula) {
         Scanner sc = new Scanner(System.in);
         Medidor m;
+        ArrayList<Medidor> mUsuario=new ArrayList<>();
         String mensaje="";
         String correo="";
+        
         boolean nuevo=true;
         String alfa="abcdefghijklmnopqrstuvwxyz";
         
@@ -84,6 +87,7 @@ public class usuarioAdministrador extends Usuario {
                 String id=ab.getCedula();
                 if (id.equals(cedula)){
                     nuevo=false;
+                    mUsuario=ab.getMedidores();
                     correo=ab.getCorreoElectronico();
                 }
             }
@@ -139,6 +143,7 @@ public class usuarioAdministrador extends Usuario {
                         case "1":
                             m=new MedidorAnalogico(codigo,direccion,planElegido.getCostoKwh(),planElegido,lecturas,ultimaFechaCobrada,consumoUltimaFactura,0);
                             medidores.add(m);
+                            mUsuario.add(m);
                             mensaje+=m.toString();
                             break;
                         case "2":
@@ -147,10 +152,14 @@ public class usuarioAdministrador extends Usuario {
                             sc.nextLine();
                             m=new MedidorInteligente(tel,0,0,codigo,direccion,planElegido.getCostoKwh(),planElegido,lecturas,ultimaFechaCobrada,consumoUltimaFactura);
                             medidores.add(m);
+                            mUsuario.add(m);
                             mensaje+=m.toString();
                             break;
                     }
+                    
+                    
                     Correo.enviarCorreo(correo,"Medidor Registrado",mensaje);
+                    
                 }
                 else{
                     System.out.println("Ingrese su nombre: ");
@@ -191,35 +200,51 @@ public class usuarioAdministrador extends Usuario {
     }
     
     public void realizarFacturacion() {
-        int total = 0;
-        for(Medidor m: medidores){
-            System.out.print(m.getCodigo());
-            total += m.calcularValorPagar(LocalDate.now());
-        System.out.print("******FACTURA*****");
-        System.out.print("Fecha de emision: ");
-        System.out.print("Codigo del medidor: ");
-        System.out.print("Nombre del Plan: ");
-        System.out.print("Fecha lectura anterior: ");
-        System.out.print("Fecha lectura actual: ");
-        System.out.print("Números de días: ");
-        System.out.print("Lectura Anterior: ");
-        System.out.print("Lectura Actual: ");
-        System.out.print("Consumo en Kilovatios: ");
-        System.out.print("Cargi Fijo del Plan: ");
-        System.out.print("Total a pagar: "+ total);    
+        for (Usuario u:usuarios) {
+            if (u instanceof usuarioAbonado) {
+                usuarioAbonado ab=(usuarioAbonado)u;
+                ArrayList<Medidor> medidoresAb=ab.getMedidores();
+                ArrayList<Factura> facturasAb=ab.getFacturas();
+                String mensaje="";
+                String correo=ab.getCorreoElectronico();
+                for(Medidor m: medidoresAb){
+                    Lectura LecAct;
+                    LocalDate Act;
+                    Lectura LecAnt;
+                    LocalDate Ant;
+                    
+                    double total = m.calcularValorPagar(LocalDate.now());
+                    Double azar=Math.random()*100000000;
+                    int n=azar.intValue();
+                    Plan p=m.getPlanContratado();
+                    LocalDate emision=LocalDate.now();
+                    ArrayList<Lectura> L=m.getLecturas();
+                    int ind=L.size();
+                    if (ind==1){
+                        LecAct=L.get(0);
+                        Act=LecAct.getFecha();
+                        LecAnt=L.get(0);
+                        Ant=LecAnt.getFecha();
+                    } else {
+                        LecAct=L.get(ind-1);
+                        Act=LecAct.getFecha();
+                        LecAnt=L.get(ind-2);
+                        Ant=LecAnt.getFecha();
+                    }
+                    long lapso = ChronoUnit.DAYS.between(Act,Ant);
+                    int dias=(int) lapso;
+                    double consumo=LecAct.getValorActual()-LecAnt.getValorActual();
+                    double cargoPlan=p.getCargoBase();
+                    
+                    Factura f= new Factura(n,ab,m,p,emision,Ant,Act,dias,LecAnt,consumo,cargoPlan,total);
+                    facturasAb.add(f);
+                    String texto=f.toString();
+                    mensaje+=texto;
+                            }
+                Correo.enviarCorreo(correo,"Detalle Facturas",mensaje);
+            }
         }
         
-     /**   
-        Código del Medidor
-Nombre del Plan
-Fecha lectura anterior: el valor en el campo fecha de lectura actual de la última factura.
-Fecha lectura actual: la fecha de la última lectura encontrada para este medidor
-Número de días Facturados
-Lectura Anterior: el total en kilovatios en el medidor en la última factura
-Lectura Actual: el total en kilovatios que marca el medidor según la última lectura registrada.
-Consumo en kilovatios
-Cargo Fijo del Plan
-Total a Pagar (según la formula de arriba)*/
 
         
         

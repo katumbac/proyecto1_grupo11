@@ -118,7 +118,7 @@ public class usuarioAbonado extends Usuario {
         sc.nextLine();
         System.out.println("Consumo de los últimos 3 medidas");
         System.out.println("Número Factura       Nombre del Plan       Código Medidor");
-                
+        
     }
     
     public void consultarConsumoHora() {

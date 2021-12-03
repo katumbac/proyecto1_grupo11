@@ -89,9 +89,6 @@ public class Factura {
         return totalPagar;
     }
 
-    
-
-
     @Override
     public String toString() {
         return "Factura\n" + "\n"+ "Número de factura: " + numeroFactura + "\n"+ "Nombre del Abonado: " + nombreAbonado + "\n"+ "Código del Medidor: " + codigoMedidor + "\n"+ "Nombre del plan: " + nombrePlan + "\n"+ "Fecha de emisión: " + fechaEmision + "\n"+ "Fecha de lectura anterior: " + fechaLecturaAnt + "\n"+ "Fecha de lectura actual: " + fechaLecturaAct + "\n"+ "Días Facturados: " + diasFacturados + "\n"+ "Lectura anterior: " + lecturaAnt + "\n"+ "Consumo: " + consumo + "\n"+ "Cargo del plan: " + cargoPlan + "\n"+ "Total a pagar: " + totalPagar+"\n";

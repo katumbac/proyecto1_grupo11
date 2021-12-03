@@ -38,24 +38,26 @@ public class usuarioOperario extends Usuario {
         DatosCreadosInternamente datos = new DatosCreadosInternamente();
         medidores = datos.getMedidores();
         lecturas = datos.getLecturas();    
-        for(Medidor x: medidores){              
-                String fecha= "";
-                String lectant="";
-                for (Lectura s: x.getLecturas()){
-                    ArrayList<Lectura> a = new ArrayList<>();                   
-                    fecha+= s.getFecha();
-                    lectant+=s.getValorActual();
-                }
+        for(Medidor x: medidores){
+            double lecactu=0;
+            String fecha= "";
+            String lectant="";
+            for (Lectura s: x.getLecturas()){
+                ArrayList<Lectura> a = new ArrayList<>();
+                fecha+= s.getFecha();
+                lectant+=s.getValorActual();
+            }
                
             if(x instanceof MedidorAnalogico && x.getCodigo().equals(cod)){
                 System.out.println("\nMedidor analogico a nombre de : " +cod);
                 System.out.println("\nÚltima lectura realizada: " +fecha);
                 System.out.println("\nLectura Anterior : "+lectant);
                 System.out.println("\nLectura Actual: ");
-                double lecactu = sc.nextDouble();
+                lecactu = sc.nextDouble();
                 double kwhconsumidos = lecactu - Double.parseDouble(lectant);
-                System.out.print("\nKilovatios consumidos: "+kwhconsumidos);
-                
+                System.out.println("\nKilovatios consumidos: "+kwhconsumidos);
+                x.getLecturas().add(new Lectura(LocalDate.now(),lecactu));
+                System.out.println(x);
             }
             else if  (x instanceof MedidorInteligente && x.getCodigo().equals(cod)){
                 MedidorInteligente y = (MedidorInteligente) x;
@@ -63,10 +65,11 @@ public class usuarioOperario extends Usuario {
                 System.out.println("\nÚltima lectura realizada: " );
                 System.out.println("\nLectura Anterior: ");
                 System.out.println("\nLectura Actual: ");
-                double lecactu = sc.nextDouble();
+                lecactu = sc.nextDouble();
                 double kwhconsumidos = lecactu - Double.parseDouble(lectant);
-                System.out.print("\nKilovatios consumidos: "+kwhconsumidos);
-                
+                System.out.println("\nKilovatios consumidos: "+kwhconsumidos);
+                x.getLecturas().add(new Lectura(LocalDate.now(),lecactu));
+                System.out.println(x);
             }
         }     
     }   
