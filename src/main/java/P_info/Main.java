@@ -32,12 +32,8 @@ public class Main {
         operario1.registrarMedicion(codp);
         System.out.println();
         operario2.registrarMedicion(codp1);**/
-        DatosCreadosInternamente datos = new DatosCreadosInternamente();
-        ArrayList<Usuario> usuarios = datos.getUsuarios();
-        System.out.println(usuarios);
         Interfaz uit = new Interfaz();
         uit.menuPrincipal();
-        System.out.println(usuarios);
         //System.out.println(datos.getPlanes());
         //System.out.println(datos.getMedidores());
 
