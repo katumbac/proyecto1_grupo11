@@ -84,6 +84,7 @@ public class Interfaz {
                     if (us instanceof usuarioAbonado) {
                         //si el usuario es Usuario abonado
                         String op1;
+                        usuarioAbonado uAb = (usuarioAbonado) us;
                         do {
                             System.out.println("Usuario Abonado");
                             System.out.println("1. Consultar Factura");
@@ -96,6 +97,7 @@ public class Interfaz {
                             switch (op1) {
                                 case "1":
                                     System.out.println("1. Consultar Factura");
+                                    uAb.consultarFactura();
                                     //Al ingresar esta opción aparece una lista 
                                     //de las facturas generadas a nombre del abonado
                                     //y a continuación se pide el número de la factura a consultar 
@@ -103,6 +105,8 @@ public class Interfaz {
                                     break;
                                 case "2":
                                     System.out.println("2. Consultar histórico facturado");
+                                    
+                                    uAb.consultarHistoricoFacturado();
                                     //Al ingresar esta opción aparece una lista con los medidores 
                                     //registrados a nombre del abonado (código y nombre del plan contratado)
                                     //a continuación se pide el código del medidor 
@@ -111,6 +115,7 @@ public class Interfaz {
                                     break;
                                 case "3":
                                     System.out.println("3. Consultar consumos por hora");
+                                    uAb.consultarConsumoHora();
                                     break;
                                 case "4":
                                     System.out.println("Adios");

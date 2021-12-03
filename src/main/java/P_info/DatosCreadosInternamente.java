@@ -36,8 +36,10 @@ public class DatosCreadosInternamente {
         lecturas = new ArrayList<Lectura>();
         
         //Dos Operarios
-        usuarios.add(new usuarioOperario("op","1234"));
-        usuarios.add(new usuarioOperario("operario2","4321"));
+        usuarioOperario operario1 =new usuarioOperario("op","1234");
+        usuarioOperario operario2 =new usuarioOperario("operario2","4321");
+        usuarios.add(operario1);
+        usuarios.add(operario2);
         
         //Dos planes
         
@@ -112,7 +114,7 @@ public class DatosCreadosInternamente {
         Lectura lectAnt = new Lectura(fechaLecturaAnt, 5);
         //Factura fact = new Factura(001, "Abonado2", "COD1", plan1, fechaemi, fechaLecturaAnt, fechaLecturaAct,5,lectAnt, 5.00, 3.00, 1);
         //facturas2.add(fact);
-        usuarios.add(new usuarioAbonado("Abonado2", "0909654321", "ktumbaco2002@gmail.com", medidores2, facturas2, "operario2","4321"));
+        usuarios.add(new usuarioAbonado("Abonado2", "0909654321", "ktumbaco2002@gmail.com", medidores2, facturas2, "Abonado2","4321"));
         
         medidores.addAll(medidores1);
         medidores.addAll(medidores2);
@@ -120,11 +122,8 @@ public class DatosCreadosInternamente {
 
         
         //registrar dos  mediciones
-        String codp = "COD2";
-        String codp1 = "COD3";
-        //usuarioOperario op = null;
-        //op.registrarMedicion(codp);
-        //op.registrarMedicion(codp1);
+        
+        
         usuarios.add(new usuarioAdministrador(planes, usuarios, medidores, "admin", "superadmin"));
 
     }

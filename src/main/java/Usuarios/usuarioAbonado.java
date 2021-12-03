@@ -6,6 +6,8 @@ package Usuarios;
 import Usuarios.Usuario;
 import P_info.Factura;
 import Medidores.Medidor;
+import Medidores.MedidorAnalogico;
+import Medidores.MedidorInteligente;
 import P_info.Plan;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -73,60 +75,66 @@ public class usuarioAbonado extends Usuario {
     }
  
     
-    public void consultarFactura(String Codigo) {
+    public void consultarFactura() {
         
         /** 
          Al ingresar esta opción aparece una lista
          * de las facturas generadas a nombre del abonado 
          * y a continuación se pide el número de la factura
          * a consultar y se muestran los detalles de las facturas */
-        System.out.print("Facturas Asociadas");
-        System.out.print("Número de Factura         Fecha Emisión       Código Medidor");
+        System.out.println("Facturas Asociadas");
+        System.out.println("Número de Factura         Fecha Emisión       Código Medidor");
+        
         for(Factura f: facturas){
-            System.out.println(f);
+            System.out.println("HO");
+            System.out.println("\t"+f.getNumeroFactura()+" "+ f.getFechaEmision()+" "+f.getCodigoMedidor());
         }
-        
-        
+                
         System.out.print("Ingrese código factura");
         int cod = sc.nextInt();
         
-        /**mostrar detalles de la factura
-         *  System.out.print("Medidor: ");
-            System.out.print("Nombre del Plan: ");
-            System.out.print("Desde: ");
-            System.out.print("Hasta: ");
-            System.out.print("Días Facturados: ");
-            System.out.print("Lectura Anterior: ");
-            System.out.print("Lectural Actual: ");
-            System.out.print("Consumo: ");
-            System.out.print("Cargo Fijo: ");
-            System.out.print("Total a Pagar: ");
-         */
+        //mostrar detalles de la factura
+        if (facturas.contains(cod)){
+            System.out.print(facturas.toString());
+        } else {
+            System.out.print("Codigo de factura no existente");
+        }
     }
     
-    public void consultarHistoricoFacturado(String Codigo, Plan plan) {
-        //Scanner sc = new Scanner(System.in); 
+    public void consultarHistoricoFacturado() {
         
-        System.out.print("Medidores Asociados");
-        System.out.print("Código Medidor         Tipo Medidor       Nombre Del Plan");
+        System.out.println("Medidores Asociados\n");
+        System.out.println("Código Medidor         Tipo Medidor       Nombre Del Plan");
+        for(Medidor m: medidores){
+            if(m instanceof MedidorInteligente){
+                System.out.println("      "+m.getCodigo()+"               Inteligente    "+"    "+m.getPlanContratado().getNombre());
+            }else if (m instanceof MedidorAnalogico){
+                System.out.println("      "+m.getCodigo()+"                Analógico    "+"    "+m.getPlanContratado().getNombre());
+            }   
+        }
         
-        
-        System.out.print("Ingrese el código del medidor a consultar");
-        int cod = sc.nextInt();
-        
-        System.out.print("Número Factura       Nombre del Plan       Código Medidor");
+        System.out.println("Ingrese el código del medidor a consultar");
+        String cod = sc.nextLine().toUpperCase();
+        sc.nextLine();
+        System.out.println("Consumo de los últimos 3 medidas");
+        System.out.println("Número Factura       Nombre del Plan       Código Medidor");
+                
     }
     
-    public void consultarConsumoHora(String Codigo) {
-        //Scanner sc = new Scanner(System.in); 
+    public void consultarConsumoHora() {
+        
         
         System.out.print("Medidores Inteligentes Asociados");
         System.out.print("Código Medidor         Tipo Medidor       Nombre Del Plan");
-        
+        for(Medidor m: medidores){
+            if(m instanceof MedidorInteligente){
+                System.out.println("      "+m.getCodigo()+"               Inteligente    "+"    "+m.getPlanContratado().getNombre()); 
+            }
+        }
         
         System.out.print("Ingrese el código del medidor a consultar");
-        int cod = sc.nextInt();
-        
+        String cod = sc.nextLine();
+   
         System.out.print("Ingrese Fecha Inicio: ");
         String f_ini = sc.nextLine();
         
@@ -134,7 +142,11 @@ public class usuarioAbonado extends Usuario {
         String f_fin = sc.nextLine();
         
         System.out.print("Hora              Promedio Consumo");
-
+        for(Medidor m: medidores){
+            if(m instanceof MedidorInteligente && m.getCodigo().equals(cod)){
+                //System.out.println("      "+m.+"               Inteligente    "+"    "+m.getPlanContratado().getNombre()); 
+            }
+        }
     }
     public String toString(){
         return "Usuario Abonado:\n" + super.toString() + "Cédula: "+cedula+"\n"+"Correo: "+ this.correoElectronico + "\n"+"Medidores: "+ this.medidores+"\n";

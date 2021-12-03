@@ -23,6 +23,7 @@ public class usuarioOperario extends Usuario {
     
     public ArrayList<Medidor> medidores;
     public ArrayList<Lectura> lecturas;
+    public ArrayList<Usuario> usuarios;
     public DatosCreadosInternamente datos;
     
     public usuarioOperario(String nombre, String contrasenia) {
@@ -30,13 +31,14 @@ public class usuarioOperario extends Usuario {
     }
 
     public void registrarMedicion(String codigo){
+        
         Scanner sc = new Scanner(System.in);
         String cod = codigo.toUpperCase();
     
         DatosCreadosInternamente datos = new DatosCreadosInternamente();
         medidores = datos.getMedidores();
         lecturas = datos.getLecturas();    
-        for(Medidor x: medidores){
+        for(Medidor x: medidores){              
                 String fecha= "";
                 String lectant="";
                 for (Lectura s: x.getLecturas()){
@@ -44,25 +46,26 @@ public class usuarioOperario extends Usuario {
                     fecha+= s.getFecha();
                     lectant+=s.getValorActual();
                 }
+               
             if(x instanceof MedidorAnalogico && x.getCodigo().equals(cod)){
-                System.out.println("Medidor analogico a nombre de : " );
-                System.out.println("Última lectura realizada: " +fecha);
-                System.out.println("Lectura Anterior : "+lectant);
-                System.out.println("Lectura Actual: ");
+                System.out.println("\nMedidor analogico a nombre de : " +cod);
+                System.out.println("\nÚltima lectura realizada: " +fecha);
+                System.out.println("\nLectura Anterior : "+lectant);
+                System.out.println("\nLectura Actual: ");
                 double lecactu = sc.nextDouble();
                 double kwhconsumidos = lecactu - Double.parseDouble(lectant);
-                System.out.print("Kilovatios consumidos: "+kwhconsumidos);
+                System.out.print("\nKilovatios consumidos: "+kwhconsumidos);
                 
             }
             else if  (x instanceof MedidorInteligente && x.getCodigo().equals(cod)){
                 MedidorInteligente y = (MedidorInteligente) x;
-                System.out.print("Medidor Inteligente a nombre de : " );
-                System.out.print("Última lectura realizada: " );
-                System.out.print("Lectura Anterior: ");
-                System.out.println("Lectura Actual: ");
+                System.out.println("\nMedidor Inteligente a nombre de : "+cod);
+                System.out.println("\nÚltima lectura realizada: " );
+                System.out.println("\nLectura Anterior: ");
+                System.out.println("\nLectura Actual: ");
                 double lecactu = sc.nextDouble();
                 double kwhconsumidos = lecactu - Double.parseDouble(lectant);
-                System.out.print("Kilovatios consumidos: "+kwhconsumidos);
+                System.out.print("\nKilovatios consumidos: "+kwhconsumidos);
                 
             }
         }     
