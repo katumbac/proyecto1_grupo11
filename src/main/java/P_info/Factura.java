@@ -28,7 +28,7 @@ public class Factura {
 
     public Factura(int numeroFactura, usuarioAbonado nombreAbonado, Medidor codigoMedidor, Plan nombrePlan, LocalDate fechaEmision, LocalDate fechaLecturaAnt, LocalDate fechaLecturaAct, int diasFacturados, Lectura lecturaAnt, double consumo, double cargoPlan, double totalPagar) {
         this.numeroFactura = numeroFactura;
-        this.nombreAbonado = nombreAbonado.getNombre();
+        this.nombreAbonado = nombreAbonado.getNombreAbonado();
         this.codigoMedidor = codigoMedidor.getCodigo();
         this.nombrePlan = nombrePlan.getNombre();
         this.fechaEmision = fechaEmision;
