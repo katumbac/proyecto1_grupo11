@@ -55,6 +55,7 @@ public class usuarioOperario extends Usuario {
                 double lecactu = sc.nextDouble();
                 double kwhconsumidos = lecactu - Double.parseDouble(lectant);
                 System.out.print("\nKilovatios consumidos: "+kwhconsumidos);
+                x.getLecturas().add(new Lectura(LocalDate.now(), lecactu));
                 
             }
             else if  (x instanceof MedidorInteligente && x.getCodigo().equals(cod)){
