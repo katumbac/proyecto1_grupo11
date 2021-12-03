@@ -266,16 +266,22 @@ public class usuarioAdministrador extends Usuario {
                     LocalDate emision=LocalDate.now();
                     ArrayList<Lectura> L=m.getLecturas();
                     int ind=L.size();
+                    
                     if (ind==1){
                         LecAct=L.get(0);
                         Act=LecAct.getFecha();
                         LecAnt=L.get(0);
                         Ant=LecAnt.getFecha();
-                    } else {
+                    } else if(ind>1) {
                         LecAct=L.get(ind-1);
                         Act=LecAct.getFecha();
                         LecAnt=L.get(ind-2);
                         Ant=LecAnt.getFecha();
+                    } else{
+                        Act=LocalDate.now();
+                        Ant=LocalDate.now();
+                        LecAct = new Lectura(Act,0);
+                        LecAnt = new Lectura(Ant,0);
                     }
                     long lapso = ChronoUnit.DAYS.between(Act,Ant);
                     int dias=(int) lapso;

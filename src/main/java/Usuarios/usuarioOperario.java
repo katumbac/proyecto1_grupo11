@@ -52,7 +52,7 @@ public class usuarioOperario extends Usuario {
                                 lectant=s.getValorActual();
                             }
                             if(x instanceof MedidorAnalogico && x.getCodigo().equals(cod)){
-                                System.out.println("\nMedidor analogico a nombre de : " +cod);
+                                System.out.println("\nMedidor analogico a nombre de : " +uA.getNombreAbonado());
                                 System.out.println("\nÚltima lectura realizada: " +fecha);
                                 System.out.println("\nLectura Anterior : "+lectant);
                                 System.out.println("\nLectura Actual: ");
@@ -67,7 +67,7 @@ public class usuarioOperario extends Usuario {
                             }
                             else if  (x instanceof MedidorInteligente && x.getCodigo().equals(cod)){
                                 MedidorInteligente y = (MedidorInteligente) x;
-                                System.out.println("\nMedidor Inteligente a nombre de : "+cod);
+                                System.out.println("\nMedidor Inteligente a nombre de : "+uA.getNombreAbonado());
                                 System.out.println("\nÚltima lectura realizada: " );
                                 System.out.println("\nLectura Anterior: ");
                                 System.out.println("\nLectura Actual: ");
@@ -88,7 +88,7 @@ public class usuarioOperario extends Usuario {
 
             }
         }
-        if (val>2) {
+        if (val>3) {
             System.out.println("Opción Inválida");
         }
     }

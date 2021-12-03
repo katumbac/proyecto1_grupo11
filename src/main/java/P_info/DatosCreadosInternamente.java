@@ -80,8 +80,8 @@ public class DatosCreadosInternamente {
         ArrayList<Factura> facturas1 = new ArrayList<>();
         ArrayList<Medidor> medidores1 = new ArrayList<>();
                
-        LocalDate fechaini= LocalDate.of(2023,03,04);
-        LocalDate fechafin= LocalDate.of(2024,03,04);
+        LocalDate fechaini= LocalDate.of(2021,03,04);
+        LocalDate fechafin= LocalDate.of(2021,03,10);
         Lectura lect1 = new Lectura(fechaini, 5.00);      
         lecturas1.add(lect1);
         lecturas.add(lect1);
@@ -90,13 +90,15 @@ public class DatosCreadosInternamente {
         
         
         //Analogico
-        usuarios.add(new usuarioAbonado("0909123456", "0909123456", "luis.burgosanzules@gmail.com", medidores1, facturas1, "Abonado1","1234"));
+        usuarios.add(new usuarioAbonado("Roberto Encalada", "0350147740", "robertcarlos530@gmail.com", medidores1, facturas1, "Abonado1","1234"));
         
 
         //analogico e inteligente
         ArrayList<Medidor> medidores2 = new ArrayList<>();
         
-        medidores2.add(new MedidorAnalogico("COD2","Argentina",3.00, plan2 ,lecturas1, fechaini,fechafin,5.00));
+        LocalDate fechaini1= LocalDate.of(2021,05,04);
+        LocalDate fechafin1= LocalDate.of(2021,05,10);
+        medidores2.add(new MedidorAnalogico("COD2","Argentina",3.00, plan2 ,lecturas1, fechaini1,fechafin1,5.00));
         
         //MedidorInteligente(double telemetria, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura)
         
@@ -105,14 +107,14 @@ public class DatosCreadosInternamente {
         //medidor2.add(new MedidorInteligente(5.00,3.00,6.00,8.00 "COD2", "El_Oro","Portete",3.00, plan1 ,lecturas1, fechaini, fechafin2));
         
         
-        LocalDate fecha1= LocalDate.of(2024,03,04);
+        LocalDate fecha1= LocalDate.of(2021,03,04);
         //Lectura lecturas2 = new Lectura(fecha1, 5.00);
-        LocalDate fechaemi = LocalDate.of(2020,03,04);
+        LocalDate fechaemi = LocalDate.of(2021,03,04);
         LocalDate fechaLecturaAct = LocalDate.now();
-        LocalDate fechaLecturaAnt = LocalDate.of(2020,02,04);
+        LocalDate fechaLecturaAnt = LocalDate.of(2021,02,04);
         ArrayList<Factura> facturas2 = new ArrayList<>();
         Lectura lectAnt = new Lectura(fechaLecturaAnt, 5);
-        usuarios.add(new usuarioAbonado("0909654321", "0909654321", "luis.burgosanzules@gmail.com", medidores2, facturas2, "Abonado2","4321"));
+        usuarios.add(new usuarioAbonado("Luis Burgos", "0909654321", "luis.burgosanzules@gmail.com", medidores2, facturas2, "Abonado2","4321"));
         
         medidores.addAll(medidores1);
         medidores.addAll(medidores2);

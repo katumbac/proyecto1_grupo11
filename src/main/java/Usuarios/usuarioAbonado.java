@@ -37,7 +37,9 @@ public class usuarioAbonado extends Usuario {
         this.facturas = facturas;
     }
       
-   
+    public String getNombreAbonado(){
+        return nombre;
+    }
     public String getCedula() {
         return cedula;
     }
@@ -86,7 +88,7 @@ public class usuarioAbonado extends Usuario {
             System.out.println("HO");
             System.out.println("\t"+f.getNumeroFactura()+"           "+ f.getFechaEmision()+"             "+f.getCodigoMedidor());
         }
-        System.out.println("Ingrese código factura: ");
+        System.out.println("Ingrese número de factura: ");
         int cod = sc.nextInt();
         sc.nextLine();
         //mostrar detalles de la factura
