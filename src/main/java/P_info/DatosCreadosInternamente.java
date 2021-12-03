@@ -99,6 +99,7 @@ public class DatosCreadosInternamente {
         medidores2.add(new MedidorAnalogico("COD2","Argentina",3.00, plan2 ,lecturas1, fechaini,fechafin,5.00));
         
         //MedidorInteligente(double telemetria, double KilovatiosConsumidosNoPico, double KilovatiosConsumidosPico, String codigo, String direccion, double costoKwh, Plan planContratado, ArrayList<Lectura> lecturas, LocalDate ultimaFechaCobrada, LocalDate consumoUltimaFactura)
+        
         medidores2.add(new MedidorInteligente(5.40,50,60,"COD12","Portete",5.00,plan2,lecturas1,fechaini,fechafin));
         LocalDate fechafin2= LocalDate.of(2024,03,04);
         //medidor2.add(new MedidorInteligente(5.00,3.00,6.00,8.00 "COD2", "El_Oro","Portete",3.00, plan1 ,lecturas1, fechaini, fechafin2));

@@ -9,6 +9,9 @@ import Medidores.Medidor;
 import Medidores.MedidorAnalogico;
 import Medidores.MedidorInteligente;
 import P_info.Plan;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,7 +28,7 @@ public class usuarioAbonado extends Usuario {
     private ArrayList<Factura> facturas;
     Scanner sc  = new Scanner(System.in);
     
-    public usuarioAbonado(String nombreUsuario, String cedula, String correoElectronico, ArrayList<Medidor> medidores, ArrayList<Factura> facturas, String nombre, String contrasenia) {
+    public usuarioAbonado(String nombre, String cedula, String correoElectronico, ArrayList<Medidor> medidores, ArrayList<Factura> facturas, String nombreUsuario, String contrasenia) {
         super(nombreUsuario, contrasenia);
         this.nombre = nombre;
         this.cedula = cedula;
@@ -138,30 +141,38 @@ public class usuarioAbonado extends Usuario {
     public void consultarConsumoHora() {
         
         
-        System.out.print("Medidores Inteligentes Asociados");
-        System.out.print("Código Medidor         Tipo Medidor       Nombre Del Plan");
+        System.out.println("Medidores Inteligentes Asociados");
+        System.out.println("Código Medidor         Tipo Medidor       Nombre Del Plan");
+        
         for(Medidor m: medidores){
             if(m instanceof MedidorInteligente){
-                System.out.println("      "+m.getCodigo()+"               Inteligente    "+"    "+m.getPlanContratado().getNombre()); 
+                System.out.println(m.getCodigo()+"                  Inteligente    "+"        "+m.getPlanContratado().getNombre()); 
             }
         }
         
-        System.out.print("Ingrese el código del medidor a consultar");
+        System.out.println("Ingrese el código del medidor a consultar");
         String cod = sc.nextLine();
    
-        System.out.print("Ingrese Fecha Inicio: ");
+        System.out.println("Ingrese Fecha Inicio: ");
         String f_ini = sc.nextLine();
         
-        System.out.print("Ingrese Fecha Fin: ");
+        
+        System.out.println("Ingrese Fecha Fin: ");
         String f_fin = sc.nextLine();
         
-        System.out.print("Hora              Promedio Consumo");
+        System.out.println("Hora              Promedio Consumo");
         for(Medidor m: medidores){
             if(m instanceof MedidorInteligente && m.getCodigo().equals(cod)){
-                //System.out.println("      "+m.+"               Inteligente    "+"    "+m.getPlanContratado().getNombre()); 
+                for  (LocalDateTime date = LocalDateTime.parse(f_ini+"T00:00:00") ; date.isBefore(LocalDateTime.parse(f_fin+"T00:00:00")) ; date = date.plusMinutes(60) ) {
+                        Double aleatorio=Math.random()*100;
+                        int com=aleatorio.intValue();
+                        System.out.println(date.getHour()+":00"+" - " +date.getHour()+":"+date.minusMinutes(1).getMinute()+"              "+com);
+                }
             }
         }
     }
+        
+    
     public String toString(){
         return "Usuario Abonado:\n" + super.toString() + "Cédula: "+cedula+"\n"+"Correo: "+ this.correoElectronico + "\n"+"Medidores: "+ this.medidores+"\n";
     }

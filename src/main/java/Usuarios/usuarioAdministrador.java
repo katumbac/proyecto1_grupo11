@@ -94,7 +94,6 @@ public class usuarioAdministrador extends Usuario {
                 }
             }
         }
-        //Método incompleto, todavía falta.
         if (nuevo==false){
                     
                     System.out.println("Ingrese la dirección donde se instalará el medidor: ");
@@ -159,9 +158,7 @@ public class usuarioAdministrador extends Usuario {
                             break;
                     }
                     
-                    
                     Correo.enviarCorreo(correo,"Medidor Registrado",mensaje);
-                    
                 }
                 else{
                     System.out.println("Ingrese su nombre: ");
@@ -187,10 +184,10 @@ public class usuarioAdministrador extends Usuario {
                         }
                     }
                     //(String destinatario, String asunto, String contenido)
-                    ArrayList<Medidor> medidores = new ArrayList<>();
-                    ArrayList<Factura> facturas = new ArrayList<>();
+                    ArrayList<Medidor> m_newUsuario = new ArrayList<>();
+                    ArrayList<Factura> newFacturas = new ArrayList<>();
                     
-                    usuarios.add(new usuarioAbonado(cedula,cedula,correo,medidores,facturas,nombre,contrasenia));
+                    usuarios.add(new usuarioAbonado(nombre,cedula,correo,m_newUsuario,newFacturas,cedula,contrasenia));
                     mensaje+="Usuario: "+ cedula +"\nContraseña: "+contrasenia;
                     Correo.enviarCorreo(correo,"Registro en el sistema",mensaje);
                     
@@ -241,7 +238,7 @@ public class usuarioAdministrador extends Usuario {
             
             }
             
-            System.out.println("Existen "+medInt+ "Medidores Inteligente");
+            System.out.println("Existen "+medInt+" Medidores Inteligente");
             for(Lectura intl: mediInt){
                 System.out.print("");
             }

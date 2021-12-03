@@ -181,6 +181,7 @@ public class Interfaz {
                                     System.out.println("Ingrese número de cédula del abonado: ");
                                     String numced = sc.nextLine();
                                     ua.registrarMedidor(numced);
+                                    System.out.println(usuarios);
                                  
                                     //Si los datos son válidos se procede a registrar el medidor el cual tendrá un código único. Al final se debe enviar un correo al abonado con los datos del medidor y en caso se registrará un nuevo abonado se debe enviar el usuario y contraseña de este.
                                     break;
