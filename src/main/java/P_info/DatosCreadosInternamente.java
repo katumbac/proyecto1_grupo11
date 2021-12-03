@@ -90,7 +90,7 @@ public class DatosCreadosInternamente {
         
         
         //Analogico
-        usuarios.add(new usuarioAbonado("0909123456", "0909123456", "burgot95@gmail.com", medidores1, facturas1, "Abonado1","1234"));
+        usuarios.add(new usuarioAbonado("0909123456", "0909123456", "luis.burgosanzules@gmail.com", medidores1, facturas1, "Abonado1","1234"));
         
 
         //analogico e inteligente
@@ -114,7 +114,7 @@ public class DatosCreadosInternamente {
         Lectura lectAnt = new Lectura(fechaLecturaAnt, 5);
         //Factura fact = new Factura(001, "Abonado2", "COD1", plan1, fechaemi, fechaLecturaAnt, fechaLecturaAct,5,lectAnt, 5.00, 3.00, 1);
         //facturas2.add(fact);
-        usuarios.add(new usuarioAbonado("0909654321", "0909654321", "burgot95@gmail.com", medidores2, facturas2, "Abonado2","4321"));
+        usuarios.add(new usuarioAbonado("0909654321", "0909654321", "luis.burgosanzules@gmail.com", medidores2, facturas2, "Abonado2","4321"));
         
         medidores.addAll(medidores1);
         medidores.addAll(medidores2);
@@ -129,7 +129,7 @@ public class DatosCreadosInternamente {
     }
 
     public ArrayList<Lectura> getLecturas() {
-        return lecturas;
+        return this.lecturas;
     }
 
     public void setLecturas(ArrayList<Lectura> lecturas) {
